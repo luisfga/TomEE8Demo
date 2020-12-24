@@ -19,6 +19,13 @@
       <version>${tomee.javaee-api.version}</version>
       <scope>provided</scope>
     </dependency>
+    
+    <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>7.0</version>
+    </dependency>
+    
     <dependency>
       <groupId>org.apache.tomee</groupId>
       <artifactId>arquillian-tomee-embedded</artifactId>
