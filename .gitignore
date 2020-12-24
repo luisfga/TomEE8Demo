@@ -51,3 +51,4 @@ tmp/
 build/
 /nbactions.xml
 /nb-configuration.xml
+.distribution
