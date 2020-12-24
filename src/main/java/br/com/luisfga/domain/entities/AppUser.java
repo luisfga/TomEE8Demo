@@ -32,31 +32,31 @@ import javax.validation.constraints.NotNull;
 })
 public class AppUser implements Serializable {
     
-    @NotBlank(message = "Nome do usuário é obrigatório")
+    @NotBlank
     @Column(name="user_name")
     private String userName;
     
     private byte[] thumbnail;
     
     @Id
-    @NotBlank(message = "E-mail é obrigatório")
-    @Email(message = "validation.invalid.email")
+    @NotBlank
+    @Email
     private String email;
     
-    @NotNull(message = "Data de Nascimento é obrigatório")
+    @NotNull
     @Column(columnDefinition = "DATE")
     private LocalDate birthday;
     
     @Column(name="join_time")
     private OffsetDateTime joinTime;
     
-    @NotBlank(message = "Senha é obrigatório")
+    @NotBlank
     private String password;
     
     @Column(name="search_token")
     private String searchToken;
     
-    @NotEmpty(message = "Status é obrigatório")
+    @NotEmpty
     private String status;
     
     @OneToOne(mappedBy = "appUser", orphanRemoval = true)

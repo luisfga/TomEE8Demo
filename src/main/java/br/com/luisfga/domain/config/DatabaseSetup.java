@@ -37,7 +37,7 @@ public class DatabaseSetup implements ServletContextListener {
     }
 
     private void checkRequiredData() {
-        logger.info("Checando dados necessários");
+        logger.info("Looking for required data");
 
         try {
 
@@ -46,25 +46,25 @@ public class DatabaseSetup implements ServletContextListener {
             EntityManager em = emf.createEntityManager();
 
             Query findBasicRole = em.createNamedQuery("AppRole.findStandardRoles");
-            List<AppRole> roles = findBasicRole.getResultList(); //apenas faz a query pra ver se vai dar NoResultException
+            List<AppRole> roles = findBasicRole.getResultList();
 
             if(!roles.isEmpty()){
-                logger.info("Dados OK!");
+                logger.info("Required data is OK!");
             } else {
-                logger.info("Dados não encontrados");
+                logger.info("Required data not found. Saving them...");
                 
                 //Role USER
                 AppRole normalUserRole = new AppRole();
                 normalUserRole.setRoleName("USER");
                 em.persist(normalUserRole);
-                logger.log(Level.INFO, "Salvou: {0}", normalUserRole);
+                logger.log(Level.INFO, "Role saved: {0}", normalUserRole);
                 
                 //Role ADMIN
                 AppRole adminRole = new AppRole();
                 adminRole.setRoleName("ADMIN");
                 em.persist(adminRole);
-                logger.log(Level.INFO, "Salvou: {0}", adminRole);
-                logger.info("Dados OK!");
+                logger.log(Level.INFO, "Role saved: {0}", adminRole);
+                logger.info("Required data is OK!");
             }
 
             tx.commit();

@@ -4,7 +4,7 @@ It's the https://github.com/luisfga/tomee-embedded[master] branch plus basic JPA
 
 .The additions are:
 * https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/resources/META-INF/persistence.xml[persistence.xml] using tomee's default OpenJPA;
-* some https://github.com/luisfga/tomee-embedded/tree/jpa/src/main/java/br/com/luisfga/domain/entities[entities]; 
+* some https://github.com/luisfga/tomee-embedded/tree/jpa/src/main/java/br/com/luisfga/domain/entities[entities] + bean validation annotations; 
 * database https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/webapp/WEB-INF/resources.xml[<Resource>] for tomee (hsqldb pointing to /appdata/tomee-demo-db file);
 * and a https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/java/br/com/luisfga/domain/config/DatabaseSetup.java[DatabaseSetup] to load some required data (sample roles);
 
