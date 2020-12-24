@@ -14,7 +14,7 @@ java -jar target/tomee-embedded-exec.jar
 ----
 
 # Branches
-The branches are maintained to provide a layered comparison between apis, and are stack-built (the branches are built on top of the precedent)
+The branches are maintained to provide a layered comparison between APIs, and are stack-built (the branches are built on top of the precedent)
 
 1. https://github.com/luisfga/tomee-embedded/tree/jpa[jpa]
 
