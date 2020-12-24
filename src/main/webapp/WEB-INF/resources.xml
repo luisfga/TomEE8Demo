@@ -1,0 +1,38 @@
+<!--
+    Resources para o TomEE. Podem ser colocados também em <tommee_dir>/conf/tomee.xml,
+    mas lá a raiz é <tomee> mesmo não precisa da raiz que aqui e <resources>. Só vai a
+    tag <Resource>
+-->
+<resources>
+    
+    <!-- Datasource para o TomEE -->
+    <Resource id="tomeeDemoDS" type="DataSource">
+        JdbcDriver          org.hsqldb.jdbcDriver
+        JdbcUrl             jdbc:hsqldb:file:/appdata/tomee-demo-db
+        UserName            sa
+        Password            
+        JtaManaged          true
+        DefaultAutoCommit   true
+    </Resource>
+    
+    <!-- 
+        Abaixo um template de javax.mail.Session preconfigurado para algum email do Outlook.com 
+        Falta email e senha. Coloco esse recurso direto no servidor (<tomee_dir>/conf/tomee.xml) 
+        para não precisar commitar os dados da conta que uso pra desenvolvimento, mas pode ser 
+        configurada aqui mesmo, só completar o email e a senha.
+    -->
+<!--    <Resource id="applicationMailSession" type="javax.mail.Session">
+        mail.transport.protocol = smtp
+        mail.smtp.host = smtp.office365.com
+        mail.smtp.auth = true
+        mail.smtp.starttls.enable = true
+        mail.smtp.port = 587
+
+        mail.smtp.ssl.trust = smtp.office365.com
+        mail.debug = true
+
+        mail.smtp.user = <algum_email>@outlook.com
+        password = ***sua_senha_super_secreta***
+    </Resource>-->
+    
+</resources>
