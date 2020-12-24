@@ -1,5 +1,7 @@
 # Apache TomEE Embedded Base
 
+It consists basically of a https://github.com/luisfga/tomee-embedded/blob/master/pom.xml[pom.xml] with tomee javaee api dependency (and some for tests), a web.xml and a index.xhtml
+
 Everything ready-to-run with a simple `mvn clean install tomee:run`
 
 # Uber Jar
@@ -10,3 +12,10 @@ If you'd like to build an uber-jar from the project, simply do:
 mvn clean install tomee:exec
 java -jar target/tomee-embedded-exec.jar
 ----
+
+# Branches
+The branches are maintained to provide a layered comparison between apis, and are stack-built (the branches are built on top of the precedent)
+
+1. https://github.com/luisfga/tomee-embedded/tree/jpa[jpa]
+
+2. https://github.com/luisfga/tomee-embedded/tree/jsf[jsf]
