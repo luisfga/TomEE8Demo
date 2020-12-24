@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     </head>
     <body>
-        Hey, TomEE Embedded XP, Hello! From a JSP index
-
-        <a href="/pages/jspexample.jsp">Another JSP Example</a>
+        Hey, TomEE Embedded Base. Hello, from a JSP index!
     </body>
 </html>

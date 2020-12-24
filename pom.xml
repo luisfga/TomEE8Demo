@@ -5,10 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>br.com.luisfga</groupId>
-  <artifactId>tomee-embedded-xp</artifactId>
+  <artifactId>tomee-embedded</artifactId>
   <version>0.1</version>
 
   <packaging>war</packaging>
+  
+  <name>tomee-embedded</name>
 
   <dependencies>
     <dependency>
@@ -38,7 +40,7 @@
   </dependencies>
 
   <build>
-      <finalName>tomee-embedded-xp</finalName>
+    <finalName>tomee-embedded</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.tomee.maven</groupId>
