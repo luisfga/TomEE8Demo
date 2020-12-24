@@ -1,10 +1,12 @@
 # Apache TomEE Embedded - JPA Branch
 
-It's the master branch plus jpa basic jpa configuration: 
-https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/resources/META-INF/persistence.xml[persistence.xml], 
-some https://github.com/luisfga/tomee-embedded/tree/jpa/src/main/java/br/com/luisfga/domain/entities[entities], 
-database https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/webapp/WEB-INF/resources.xml[<Resource>] for tomee 
-and a https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/java/br/com/luisfga/domain/config/DatabaseSetup.java[DatabaseSetup] to load some required data (sample roles)
+It's the https://github.com/luisfga/tomee-embedded[master] branch plus basic JPA configuration: 
+
+.The additions are:
+* https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/resources/META-INF/persistence.xml[persistence.xml]; 
+* some https://github.com/luisfga/tomee-embedded/tree/jpa/src/main/java/br/com/luisfga/domain/entities[entities]; 
+* database https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/webapp/WEB-INF/resources.xml[<Resource>] for tomee (hsqldb pointing to /appdata/tomee-demo-db file);
+* and a https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/java/br/com/luisfga/domain/config/DatabaseSetup.java[DatabaseSetup] to load some required data (sample roles);
 
 Everything ready-to-run with a simple `mvn clean install tomee:run`
 
