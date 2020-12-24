@@ -2,11 +2,11 @@
 
 It's the https://github.com/luisfga/tomee-embedded/tree/jpa[jpa branch] plus JSF basic configuration + primefaces.
 
-The additions are:
-    * Primefaces dependency on https://github.com/luisfga/tomee-embedded/blob/jsf/pom.xml[pom.xml];
-    * JSF Servlet configuration on https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/webapp/WEB-INF/web.xml[web.xml];
-    * a new https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/webapp/index.xhtml[index.xhtml];
-    * and a https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/java/br/com/luisfga/jsf/IndexBean.java[backing bean] for it.
+.The additions are:
+* Primefaces dependency on https://github.com/luisfga/tomee-embedded/blob/jsf/pom.xml[pom.xml];
+* JSF Servlet configuration on https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/webapp/WEB-INF/web.xml[web.xml];
+* a new https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/webapp/index.xhtml[index.xhtml];
+* and a https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/java/br/com/luisfga/jsf/IndexBean.java[backing bean] for it.
 
 Everything ready-to-run with a simple `mvn clean install tomee:run`
 
