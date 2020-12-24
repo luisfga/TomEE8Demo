@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>TomEE Embedded</title>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+    </h:head>
+    <h:body>
+        <h3>JPA entities</h3>
+        <ui:repeat value="#{statusBean.entities}" var="entity">
+            <h:outputText value="#{entity}"/><br/>
+        </ui:repeat>
+        
+
+    </h:body>
+</html>
