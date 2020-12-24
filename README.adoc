@@ -1,4 +1,4 @@
-# Apache TomEE Embbeded eXPeriments
+# Apache TomEE Embedded Base
 
 Everything ready-to-run with a simple `mvn clean install tomee:run`
 
@@ -8,5 +8,5 @@ If you'd like to build an uber-jar from the project, simply do:
 
 ----
 mvn clean install tomee:exec
-java -jar target/tomee-rest-arquillian-1.0-SNAPSHOT-exec.jar
+java -jar target/tomee-embedded-exec.jar
 ----
