@@ -1,14 +1,19 @@
 package br.com.luisfga.jsf;
 
+import br.com.luisfga.service.StatusService;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.metamodel.EntityType;
+
 
 /**
  *
@@ -21,7 +26,19 @@ public class StatusBean {
     @Inject
     private BeanManager beanManager;
     
+    @EJB
+    private StatusService statusService;
+    
+    private Set<EntityType<?>> entities;
     private List<Bean<?>> managedBeans;
+
+    public Set<EntityType<?>> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(Set<EntityType<?>> entities) {
+        this.entities = entities;
+    }
 
     public List<Bean<?>> getManagedBeans() {
         return managedBeans;
@@ -48,6 +65,9 @@ public class StatusBean {
                         }
                 )
                 .collect(Collectors.toList());
+        
+        //JPA entities
+        entities = statusService.getEntities();
         
     }
 }

@@ -13,5 +13,9 @@
         <ui:repeat value="#{statusBean.managedBeans}" var="managedBean">
             <h:outputText value="#{managedBean.beanClass.canonicalName}"/><br/>
         </ui:repeat>
+        <h3>JPA entities</h3>
+        <ui:repeat value="#{statusBean.entities}" var="entity">
+            <h:outputText value="#{entity}"/><br/>
+        </ui:repeat>
     </h:body>
 </html>
