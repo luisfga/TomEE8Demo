@@ -1,4 +1,4 @@
-# Apache TomEE Embedded - JPA Branch
+# Apache TomEE Embedded
 
 Everything ready-to-run with a simple `mvn clean install tomee:run`
 
