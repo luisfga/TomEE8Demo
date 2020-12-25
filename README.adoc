@@ -19,3 +19,5 @@ The branches are maintained to provide a layered comparison between APIs, and ar
 1. https://github.com/luisfga/tomee-embedded/tree/jpa[jpa]
 
 2. https://github.com/luisfga/tomee-embedded/tree/jsf[jsf]
+
+3. https://github.com/luisfga/tomee-embedded/tree/ejb-lite[ejb-lite]
