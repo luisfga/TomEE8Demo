@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">  
  
-    <head>
+    <h:head>
         <title>TomEE Embedded</title>
-    </head>
-    <body>
-        Hello, World! My name is TomEE.
-    </body>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+    </h:head>
+    <h:body>
+        <p>Hello, World! My name is TomEE.</p>
+        
+        👇👇&#128071; Look that! Its a primefaces spinning... thing.
+        <br/>
+        <i class="pi pi-spin pi-spinner" style="font-size: 3em"></i>
+        <br/><br/>
+        Also, my backing bean says: #{indexBean.message}
+        <br/><br/>
+        A guy of feel words, hum?!
+        <br/><br/>
+        See <a href="status.xhtml">server status</a> (some installed assets)
+    </h:body>
 </html>
