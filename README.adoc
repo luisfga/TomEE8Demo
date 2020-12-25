@@ -1,8 +1,6 @@
 # Apache TomEE Embedded - JSF Branch
 
-It's the https://github.com/luisfga/tomee-embedded/tree/jsf[jsf branch] plus a @Stateless annotated service (
-https://github.com/luisfga/tomee-embedded/blob/ejb-lite/src/main/java/br/com/luisfga/service/StatusService.java[StatusService]
-), which just show some assets on status.xhtml. It's the only addition.
+It's the https://github.com/luisfga/tomee-embedded/tree/jsf[jsf branch] plus a @Stateless annotated service (https://github.com/luisfga/tomee-embedded/blob/ejb-lite/src/main/java/br/com/luisfga/service/StatusService.java[StatusService]), which just show some assets on status.xhtml. It's the only addition.
 
 Everything ready-to-run with a simple `mvn clean install tomee:run`
 
