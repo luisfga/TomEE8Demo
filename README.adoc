@@ -13,7 +13,6 @@ java -jar target/tomee-embedded-exec.jar
 
 ## JPA
 
-[merging]
 * https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/resources/META-INF/persistence.xml[persistence.xml] using tomee's default OpenJPA;
 * some https://github.com/luisfga/tomee-embedded/tree/jpa/src/main/java/br/com/luisfga/domain/entities[entities] + bean validation annotations;
 * database https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/webapp/WEB-INF/resources.xml[<Resource>] for tomee (hsqldb pointing to /appdata/tomee-demo-db file);
@@ -21,12 +20,10 @@ java -jar target/tomee-embedded-exec.jar
 
 ## JSF
 
-[merging]
 * MyFaces and Primefaces dependency on https://github.com/luisfga/tomee-embedded/blob/jsf/pom.xml[pom.xml];
 * JSF Servlet configuration on https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/webapp/WEB-INF/web.xml[web.xml];
 * https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/java/br/com/luisfga/jsf[backing beans] package.
 
 ## More...
 
-[merging]
 (https://github.com/luisfga/tomee-embedded/blob/ejb-lite/src/main/java/br/com/luisfga/service/StatusService.java[StatusService]) loading some server info for StatusBean and status.xhtml.
