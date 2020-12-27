@@ -1,4 +1,4 @@
-package br.com.luisfga.jsf;
+package br.com.luisfga.controller.jsf;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

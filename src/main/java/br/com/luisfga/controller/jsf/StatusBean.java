@@ -1,4 +1,4 @@
-package br.com.luisfga.jsf;
+package br.com.luisfga.controller.jsf;
 
 import br.com.luisfga.service.StatusService;
 import java.util.Comparator;
