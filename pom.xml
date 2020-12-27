@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.luisfga</groupId>
-    <artifactId>tomee-embedded</artifactId>
+  <artifactId>TomEE8Demo</artifactId>
     <version>0.1</version>
 
     <packaging>war</packaging>
   
-    <name>tomee-embedded</name>
+  <name>TomEE8Demo</name>
 
     <dependencies>
         <dependency>
@@ -35,7 +35,7 @@
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>7.0</version>
+        <version>8.0</version>
         </dependency>
     
         <!-- Shiro dependencies: -->
@@ -84,7 +84,7 @@
     </dependencies>
 
     <build>
-        <finalName>tomee-embedded</finalName>
+    <finalName>TomEE8Demo</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.tomee.maven</groupId>
@@ -92,7 +92,7 @@
                 <version>${tomee.version}</version>
                 <configuration>
                     <tomeeVersion>${tomee.version}</tomeeVersion>
-                    <tomeeClassifier>plus</tomeeClassifier>
+                    <tomeeClassifier>webprofile</tomeeClassifier>
                     <context>TomEE8Demo</context>
                 </configuration>
             </plugin>
@@ -104,8 +104,8 @@
         <tomee.javaee-api.version>8.0-5</tomee.javaee-api.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
         <shiro.version>1.6.0</shiro.version>
         <javamail.version>1.6.0</javamail.version>
     </properties>
