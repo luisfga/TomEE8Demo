@@ -1,6 +1,13 @@
 html * {font-family: Arial !important;}
 
-body {color: black;}
+body {color: black;margin: 0; padding: 0;}
+
+.customMenubar{
+    background-color: transparent;
+    background-image: none;
+    margin: 0;
+    padding: 0;
+}
 
 h1.wellcome {
     margin: 50px 0px 50px 0px;
@@ -24,8 +31,41 @@ h1.wellcome {
     font-size: 11px;
 }
 
+.dashboardWellcome{
+    
+}
+
 /*customização das mensagens do primefaces*/
 .ui-messages{text-align: center; font-weight:normal; font-size: 12px;}
 .ui-messages li {margin: 5px 0px 5px 0px;}
 .ui-messages-error{color: red}
 .ui-messages-info{color: #0099ff}
+
+/*retirar ícones do texto do menu*/
+.ui-widget-content .ui-icon {
+    background-image: none;
+}
+
+.ui-menu .ui-menu-parent .ui-menu-child {
+    width: auto;
+}
+.pf-options{
+    float: right;
+}
+span.ui-menuitem-icon.ui-icon.pi.pi-clone{
+    display: none;
+}
+
+.inputPanelOffLogin {
+    width: 80%;
+    position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);
+}
+
+/* On screens that are Xpx or greater*/
+@media screen and (min-width: 720px) {
+    
+    .inputPanelOffLogin {
+        width: 21%;
+        position: absolute; top: 20%; left: 12.5%; transform: translateX(-20%) translateY(-12.5%);}
+
+}

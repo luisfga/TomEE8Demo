@@ -36,16 +36,3 @@ ul.actionMessage {list-style-type: none; color: green; font-size: 15px; font-wei
 
 #content {}
 
-.inputPanelOffLogin {
-    width: 80%;
-    position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);
-}
-
-/* On screens that are Xpx or greater*/
-@media screen and (min-width: 720px) {
-    
-    .inputPanelOffLogin {
-        width: 21%;
-        position: absolute; top: 12.5%; left: 12.5%; transform: translateX(-12.5%) translateY(-12.5%);}
-
-}
