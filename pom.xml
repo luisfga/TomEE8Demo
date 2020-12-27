@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>br.com.luisfga</groupId>
-  <artifactId>tomee-embedded</artifactId>
+  <artifactId>TomEE8Demo</artifactId>
   <version>0.1</version>
 
   <packaging>war</packaging>
   
-  <name>tomee-embedded</name>
+  <name>TomEE8Demo</name>
 
   <dependencies>
     <dependency>
@@ -33,7 +33,7 @@
     <dependency>
         <groupId>org.primefaces</groupId>
         <artifactId>primefaces</artifactId>
-        <version>7.0</version>
+        <version>8.0</version>
     </dependency>
     
     <dependency>
@@ -57,7 +57,7 @@
   </dependencies>
 
   <build>
-    <finalName>tomee-embedded</finalName>
+    <finalName>TomEE8Demo</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.tomee.maven</groupId>
