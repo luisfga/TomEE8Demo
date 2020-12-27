@@ -1,0 +1,51 @@
+.label {font-style:italic;}
+.tdLabelTop {text-align:left; vertical-align:bottom;}
+.inputField {
+    border-style: solid; 
+    border-color: black; border-width: 1px; 
+    /*border-radius: 20px;*/ 
+    padding: 10px 20px; width: 100%; box-sizing: border-box;
+}
+.formButton {text-align: right; margin-top: 20px;}
+
+.errorLabel {font-style:italic; color:red; }
+.errorMessage {text-align: center; font-weight:normal; color:black; font-size: 12px; box-sizing: border-box;}
+.actionMessage {text-align: center; font-weight:normal; color:green; font-size: 12px; box-sizing: border-box;}
+
+.checkboxLabel {}
+.required {color:red;}
+
+.checkboxErrorLabel {color:red; }
+.tdCheckboxErrorMessage {text-align:left; vertical-align:top;}
+
+ul{margin: 0px; padding: 0px;}
+li.errorMessage {list-style-type: none; color: red; font-size: 15px; font-weight: bold; padding: 0;}
+ul.actionMessage {list-style-type: none; color: green; font-size: 15px; font-weight: bold; padding: 0;}
+
+
+/* MY CONFIGS*/
+.panelGrid{width: 100%}
+
+.button{
+/*    background-color: #0099ff; color: white; padding: 5px 10px 5px 10px; vertical-align: middle;
+    text-align: center; text-decoration: none; border-radius: 20px;
+    font-size: 15px; cursor: pointer; border-style: none;*/
+}
+
+.customExtraFooter {display: table; margin-top: 50px; text-align: right; float: right;}
+
+#content {}
+
+.inputPanelOffLogin {
+    width: 80%;
+    position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);
+}
+
+/* On screens that are Xpx or greater*/
+@media screen and (min-width: 720px) {
+    
+    .inputPanelOffLogin {
+        width: 21%;
+        position: absolute; top: 12.5%; left: 12.5%; transform: translateX(-12.5%) translateY(-12.5%);}
+
+}

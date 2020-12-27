@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+        <title><h:outputText value="global.main.title"/></title>
+        <link rel="stylesheet" href="${request.contextPath}/css/main.css"/>
+        <link rel="stylesheet" href="${request.contextPath}/css/dashboard.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/css/custom_struts2_css_xhtml_theme.css"/>
+        <script type="text/javascript" src="${request.contextPath}/javascript/main.js"></script>
+        
+        <script>
+            function openNav() {
+              document.getElementById("navbar").style.width = "250px";
+            }
+
+            function closeNav() {
+              document.getElementById("navbar").style.width = "0";
+            }
+        </script>
+    </h:head>
+
+    <h:body>
+        <span class="navButton" id="openNavButton" onclick="openNav()">&#9776;</span>
+        <div id="navbar" class="sidenav">
+            <span class="navButton" id="closeNavButton" onclick="closeNav()">&times;</span>
+            <div id="navBarOpts" class="navBarOpts">
+                <a href="#">Comprar</a>
+                <a href="#">Vender</a>
+                <a href="#">Promoções</a>
+                <a href="#">Sair</a>
+            </div>
+        </div>
+        <div style="text-align: right;">
+            Valid? ${dashboard.valid}
+            <h:form>
+                <h:commandButton value="Logout" action="#{login.logout()}" class="button"/>
+            </h:form>
+        </div>
+        <div class="listas">
+            <h3 class="cabecalho">Ofertas</h3>
+            <span class="badge-counter">10</span>
+            <div class="painelOfertas">
+                
+            </div>
+        </div>
+
+    </h:body>
+
+</html>

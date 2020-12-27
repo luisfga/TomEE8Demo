@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+}
+/* Style the navbar */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    overflow: visible;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #0099ff;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidenav .item {
+    top: 60px;
+}
+
+/* Navbar links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    
+}
+.sidenav a:hover {
+    background-color: #818181;
+}
+
+.navBarOpts {
+    padding-top: 60px;
+}
+
+.navButton {
+    top: auto;
+    position: absolute;
+    padding: 5px 10px 5px 10px;
+    font-size:30px;
+    cursor:pointer;
+    background-color: white;
+    color: #0099ff;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+}
+#openNavButton{
+    position: fixed;
+    overflow: hidden;
+    margin: 5px;
+}
+#closeNavButton {
+    padding: 0px 10px 0px 10px;  
+    position: relative;
+    top: 5px;
+    right: 5px;
+    
+    float: right;
+}
+
+.listas {
+    width: 100%;
+    position: absolute;
+    margin-top: 50px;
+}
+
+.listas .cabecalho{
+    margin: 0px 40px 0px 0px;
+    border-bottom-style: solid;
+    width: fit-content;
+    float: right;
+}
+
+.badge-counter{
+    position: absolute;
+    background-color: yellow;
+    color: black;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    padding: 1px;
+    font-size: 10px;
+    right: 30px;
+    top: -5px;
+}
+
+.painelOfertas {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin: 40px 20px 0px 20px;
+    height: 100px;
+}
+/* On screens that are 600px or greater*/
+@media screen and (min-width: 600px) {
+
+}

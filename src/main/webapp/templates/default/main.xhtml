@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="#{localeBean.language}" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <f:view locale="#{localeBean.locale}">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+        <title><h:outputText value="#{global['main.title']}"/></title>
+        <link rel="stylesheet" href="#{request.contextPath}/css/main.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/css/custom_theme.css"/>
+        <ui:insert name="headAppend"/>
+    </h:head>
+        
+    <h:body>
+
+        <div class="languageFlags">
+            <f:view transient="true">
+                <h:form>
+                    <h:commandButton action="#{localeBean.setLanguage('pt','BR')}" image="images/brazil-flag.png" class="langflag"/>
+                    <h:commandButton action="#{localeBean.setLanguage('en')}" image="images/usa-flag.png" class="langflag"/>
+                </h:form>
+            </f:view>
+        </div>
+        
+        <ui:insert name="content" />
+        
+    </h:body>
+        
+    </f:view>
+</html>

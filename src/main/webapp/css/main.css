@@ -1,0 +1,31 @@
+html * {font-family: Arial !important;}
+
+body {color: black;}
+
+h1.wellcome {
+    margin: 50px 0px 50px 0px;
+}
+.h1Center{text-align: center;}
+
+.languageFlags {float: right;}
+
+.langflag { width: 35px; height: 35px;}
+
+.undecLink {
+    text-decoration: none;
+    color: black;
+}
+
+.plainText {
+    color: black;
+}
+
+.tinyText {
+    font-size: 11px;
+}
+
+/*customização das mensagens do primefaces*/
+.ui-messages{text-align: center; font-weight:normal; font-size: 12px;}
+.ui-messages li {margin: 5px 0px 5px 0px;}
+.ui-messages-error{color: red}
+.ui-messages-info{color: #0099ff}

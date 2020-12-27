@@ -6,7 +6,7 @@
 <resources>
     
     <!-- Datasource para o TomEE -->
-    <Resource id="tomeeDemoDS" type="DataSource">
+    <Resource id="applicationDS" type="DataSource">
         JdbcDriver          org.hsqldb.jdbcDriver
         JdbcUrl             jdbc:hsqldb:file:/appdata/tomee-demo-db
         UserName            sa
@@ -15,24 +15,23 @@
         DefaultAutoCommit   true
     </Resource>
     
-    <!-- 
-        Abaixo um template de javax.mail.Session preconfigurado para algum email do Outlook.com 
-        Falta email e senha. Coloco esse recurso direto no servidor (<tomee_dir>/conf/tomee.xml) 
-        para não precisar commitar os dados da conta que uso pra desenvolvimento, mas pode ser 
-        configurada aqui mesmo, só completar o email e a senha.
+    <!--
+        Abaixo um template de javax.mail.Session preconfigurado.
+        Aqui são usadas variáveis de ambiente, mas pode-se colocar os 
+        valores diretamente, caso o código não fique aberto na internet. 
     -->
-<!--    <Resource id="applicationMailSession" type="javax.mail.Session">
+    <Resource id="applicationMailSession" type="javax.mail.Session">
         mail.transport.protocol = smtp
-        mail.smtp.host = smtp.office365.com
         mail.smtp.auth = true
         mail.smtp.starttls.enable = true
-        mail.smtp.port = 587
-
-        mail.smtp.ssl.trust = smtp.office365.com
-        mail.debug = true
-
-        mail.smtp.user = <algum_email>@outlook.com
-        password = ***sua_senha_super_secreta***
-    </Resource>-->
+        mail.debug = true <!-- setar 'false' pra produção -->
+        
+        <!-- variáveis de ambiente necessárias no sistema -->
+        mail.smtp.host = ${APP_MAIL_SESSION_HOST}
+        mail.smtp.ssl.trust = ${APP_MAIL_SESSION_HOST}
+        mail.smtp.port = ${APP_MAIL_SESSION_PORT}
+        mail.smtp.user = ${APP_MAIL_SESSION_USERNAME}
+        password = ${APP_MAIL_SESSION_PASSWORD}
+    </Resource>
     
 </resources>
