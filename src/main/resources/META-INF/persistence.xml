@@ -9,7 +9,7 @@
 
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 
-        <jta-data-source>tomeeDemoDS</jta-data-source>
+        <jta-data-source>applicationDS</jta-data-source>
 
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         
