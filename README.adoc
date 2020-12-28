@@ -13,17 +13,17 @@ java -jar target/tomee-embedded-exec.jar
 
 ### JPA
 
-* https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/resources/META-INF/persistence.xml[persistence.xml] using tomee's default OpenJPA;
-* some https://github.com/luisfga/tomee-embedded/tree/jpa/src/main/java/br/com/luisfga/domain/entities[entities] + bean validation annotations;
-* database https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/webapp/WEB-INF/resources.xml[<Resource>] for tomee (hsqldb pointing to /appdata/tomee-demo-db file);
-* a https://github.com/luisfga/tomee-embedded/blob/jpa/src/main/java/br/com/luisfga/domain/config/DatabaseSetup.java[DatabaseSetup] to load some required data (e.g. roles).
+* https://github.com/luisfga/TomEE8Demo/blob/master/src/main/resources/META-INF/persistence.xml[persistence.xml] using tomee's default OpenJPA;
+* some https://github.com/luisfga/TomEE8Demo/tree/master/src/main/java/br/com/luisfga/domain/entities[entities] + bean validation annotations;
+* database https://github.com/luisfga/tomee-embedded/blob/master/src/main/webapp/WEB-INF/resources.xml[<Resource>] for tomee (hsqldb pointing to /appdata/tomee-demo-db file);
+* a https://github.com/luisfga/tomee-embedded/master/jpa/src/main/java/br/com/luisfga/domain/config/DatabaseSetup.java[DatabaseSetup] to load some required data (e.g. roles).
 
 ### JSF
 
-* MyFaces and Primefaces dependency on https://github.com/luisfga/tomee-embedded/blob/jsf/pom.xml[pom.xml];
-* JSF Servlet configuration on https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/webapp/WEB-INF/web.xml[web.xml];
-* https://github.com/luisfga/tomee-embedded/blob/jsf/src/main/java/br/com/luisfga/jsf[backing beans] package.
+* MyFaces and Primefaces dependency on https://github.com/luisfga/tomee-embedded/blob/master/pom.xml[pom.xml];
+* JSF Servlet configuration on https://github.com/luisfga/tomee-embedded/blob/master/src/main/webapp/WEB-INF/web.xml[web.xml];
+* https://github.com/luisfga/tomee-embedded/blob/master/src/main/java/br/com/luisfga/controller/jsf[backing beans] package.
 
 #### More...
 
-(https://github.com/luisfga/tomee-embedded/blob/ejb-lite/src/main/java/br/com/luisfga/service/StatusService.java[StatusService]) loading some server info for StatusBean and status.xhtml.
+(https://github.com/luisfga/tomee-embedded/blob/master/src/main/java/br/com/luisfga/service/StatusService.java[StatusService]) loading some server info for StatusBean and status.xhtml.
