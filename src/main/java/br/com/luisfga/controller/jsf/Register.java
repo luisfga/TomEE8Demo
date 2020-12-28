@@ -126,7 +126,7 @@ public class Register extends JsfBeanSupport{
             
             FacesContext.getCurrentInstance().addMessage(null, faceLinkMessage);
             
-            return "";
+            return "register";
             
         }
         
@@ -136,7 +136,7 @@ public class Register extends JsfBeanSupport{
 
         FacesContext.getCurrentInstance().addMessage(null, message);
         
-        return "";
+        return "register";
 
     }
 }

@@ -4,20 +4,17 @@
       xmlns:p="http://primefaces.org/ui">  
  
     <h:head>
-        <title>TomEE Embedded</title>
+        <title><h:outputText value="#{global['main.title']}"/></title>
         <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
     </h:head>
     <h:body>
-        <p>Hello, World! My name is TomEE. And my <a href="https://github.com/luisfga/tomee-embedded/blob/master/src/main/java/br/com/luisfga/jsf/IndexBean.java">backing bean</a> says: #{indexBean.message}</p>
+        <p>Hello, World! My name is TomEE. And my <a href="https://github.com/luisfga/tomee-embedded/blob/master/src/main/java/br/com/luisfga/controller/jsf/IndexBean.java">backing bean</a> says: #{indexBean.message}</p>
         
-        👇👇&#128071; Look that! Its a primefaces spinning... thing.
-        <br/>
-        <i class="pi pi-spin pi-spinner" style="font-size: 3em"></i>
-
+        &#9755; Look that! Its a primefaces spinning... thing. <i class="pi pi-spin pi-spinner" style="font-size: 3em"></i>
         <br/><br/>
         <h:button value="Server Status" outcome="/status"/> some installed assets
 
         <br/><br/>
-        <h:button value="Login" outcome="/login.xhtml"/> (needs login) 
+        <h:button value="Dashboard" outcome="/secure/dashboard"/> (needs login) 
     </h:body>
 </html>

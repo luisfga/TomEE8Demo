@@ -1,11 +1,9 @@
 package br.com.luisfga.controller.jsf.converter;
 
 import br.com.luisfga.controller.jsf.LocaleBean;
-import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.Locale;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
