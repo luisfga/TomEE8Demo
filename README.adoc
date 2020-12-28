@@ -1,4 +1,4 @@
-## Apache TomEE Embedded
+## Apache TomEE 8 Standalone
 
 Everything ready-to-run with a simple `mvn clean install tomee:run`
 
