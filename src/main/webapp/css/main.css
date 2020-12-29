@@ -1,39 +1,10 @@
 html * {font-family: Arial !important;}
-
 body {color: black;margin: 0; padding: 0;}
+a {text-decoration: none;}
+a:visited{color: black;}
 
-.customMenubar{
-    background-color: transparent;
-    background-image: none;
-    margin: 0;
-    padding: 0;
-}
-
-h1.wellcome {
-    margin: 50px 0px 50px 0px;
-}
+h1.wellcome {margin: 50px 0px 50px 0px;}
 .h1Center{text-align: center;}
-
-.languageFlags {float: right;}
-
-.langflag { width: 35px; height: 35px;}
-
-.undecLink {
-    text-decoration: none;
-    color: black;
-}
-
-.plainText {
-    color: black;
-}
-
-.tinyText {
-    font-size: 11px;
-}
-
-.dashboardWellcome{
-    
-}
 
 /*customização das mensagens do primefaces*/
 .ui-messages{text-align: center; font-weight:normal; font-size: 12px;}
@@ -42,24 +13,35 @@ h1.wellcome {
 .ui-messages-info{color: #0099ff}
 
 /*retirar ícones do texto do menu*/
-.ui-widget-content .ui-icon {
-    background-image: none;
-}
+.ui-widget-content .ui-icon {background-image: none;}
 
-.ui-menu .ui-menu-parent .ui-menu-child {
-    width: auto;
-}
-.pf-options{
-    float: right;
-}
-span.ui-menuitem-icon.ui-icon.pi.pi-clone{
-    display: none;
-}
-
+/*form*/
 .inputPanelOffLogin {
     width: 80%;
     position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);
 }
+.formSubmitBtn{float: right;}
+.button{}
+.label{}
+.inputField {
+    border-style: solid; 
+    border-color: black; border-width: 1px; 
+    /*border-radius: 20px;*/ 
+    padding: 10px 20px; width: 100%; box-sizing: border-box;
+}
+.required {color:red;}
+.panelGrid{width: 100%}
+.customExtraFooter {display: table; margin-top: 50px; text-align: right; float: right;}
+.plainText {color: black;}
+.tinyText {font-size: 11px;}
+
+/*mensagens de erro*/
+.errorLabel {font-style:italic; color:red; }
+.errorMessage {text-align: center; font-weight:normal; color:black; font-size: 12px; box-sizing: border-box;}
+.actionMessage {text-align: center; font-weight:normal; color:green; font-size: 12px; box-sizing: border-box;}
+ul{margin: 0px; padding: 0px;}
+li.errorMessage {list-style-type: none; color: red; font-size: 15px; font-weight: bold; padding: 0;}
+ul.actionMessage {list-style-type: none; color: green; font-size: 15px; font-weight: bold; padding: 0;}
 
 /* On screens that are Xpx or greater*/
 @media screen and (min-width: 720px) {

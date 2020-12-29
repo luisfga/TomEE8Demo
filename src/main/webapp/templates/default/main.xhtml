@@ -13,7 +13,6 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
             <title><h:outputText value="#{global['main.title']}"/></title>
             <link rel="stylesheet" href="#{request.contextPath}/css/main.css"/>
-            <link rel="stylesheet" href="#{request.contextPath}/css/custom_theme.css"/>
             <ui:insert name="headAppend"/>
         </h:head>
 
@@ -21,7 +20,7 @@
 
             <f:view transient="true">
                 <h:form>
-                    <p:menubar class="customMenubar" autoDisplay="false" toggleEvent="click">
+                    <p:menubar autoDisplay="false">
 
                         <p:submenu label="#{global['options']}" icon="pi pi-cog" style="float: right;">
                             <p:submenu label="#{global['language']}" icon="pi pi-clone">
