@@ -18,13 +18,12 @@ import javax.inject.Inject;
 @FacesConverter("LocalDateConverter")
 public class LocalDateConverter implements Converter{
 
-    @Inject
-    private LocaleBean localeBean;
+    private final String localDatePattern = "yyyy-MM-dd";
     
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) throws ConverterException {
         
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(localDatePattern);
         
         return (string==null||string.isEmpty())?null:LocalDate.parse(string, dateTimeFormatter);
     }

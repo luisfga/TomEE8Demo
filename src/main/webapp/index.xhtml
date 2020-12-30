@@ -3,18 +3,16 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">  
  
-    <h:head>
-        <title><h:outputText value="#{global['main.title']}"/></title>
-        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
-    </h:head>
-    <h:body>
-        <p>Hello, World! My name is TomEE. And my <a href="https://github.com/luisfga/tomee-embedded/blob/master/src/main/java/br/com/luisfga/controller/jsf/IndexBean.java">backing bean</a> says: #{indexBean.message}</p>
+    <ui:composition template="/templates/default/main.xhtml">
+        <ui:define name="content">
         
-        &#9755; Look that! Its a primefaces spinning... thing. <i class="pi pi-spin pi-spinner" style="font-size: 3em"></i>
-        <br/><br/>
-        <h:button value="Server Status" outcome="/status"/> some installed assets
-
-        <br/><br/>
-        <h:button value="Dashboard" outcome="/secure/dashboard"/> (needs login) 
-    </h:body>
+        <div class="framedLeftPanel">
+            <p:messages globalOnly="true" escape="false"/>
+            <h1 class="wellcome"><h:outputText value="${global['landing.page.wellcome']}"/></h1>
+            <div class="customExtraFooter">
+                <h:button value="${global['enter']}" outcome="/secure/dashboard" class="button"/>
+            </div>
+        </div>
+        </ui:define>
+    </ui:composition>  
 </html>

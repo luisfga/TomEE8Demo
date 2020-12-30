@@ -8,7 +8,7 @@
     <!-- Datasource para o TomEE -->
     <Resource id="applicationDS" type="DataSource">
         JdbcDriver          org.hsqldb.jdbcDriver
-        JdbcUrl             jdbc:hsqldb:file:/appdata/tomee-demo-db
+        JdbcUrl             jdbc:hsqldb:file:appdata/tomee-demo-db
         UserName            sa
         Password            
         JtaManaged          true

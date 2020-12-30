@@ -1,11 +1,4 @@
-html * {font-family: Arial !important;}
-body {color: black;margin: 0; padding: 0;}
-a {text-decoration: none;}
-a:visited{color: black;}
-
-h1.wellcome {margin: 50px 0px 50px 0px;}
-.h1Center{text-align: center;}
-
+/*PRIMEFACES Início (customização do tema padrão)*/
 /*customização das mensagens do primefaces*/
 .ui-messages{text-align: center; font-weight:normal; font-size: 12px;}
 .ui-messages li {margin: 5px 0px 5px 0px;}
@@ -13,31 +6,81 @@ h1.wellcome {margin: 50px 0px 50px 0px;}
 .ui-messages-info{color: #0099ff}
 
 /*retirar ícones do texto do menu*/
-.ui-widget-content .ui-icon {background-image: none;}
+/*.ui-widget-content .ui-icon {background-image: none;}*/
 
-/*form*/
-.inputPanelOffLogin {
-    width: 80%;
+/*retirar ícones de triângulo em opção com submenu*/
+span.ui-icon-triangle-1-s, span.ui-icon-triangle-1-e{display: none;}
+.ui-menubar .ui-menuitem-link{padding: .2em .2em;}
+.ui-menu .ui-menuitem-link{line-height: normal;}
+
+/*link de 'menuitem'*/
+.ui-menu .ui-menuitem-link{
+    display: flex;
+    align-items: center;
+}
+.custom-icon {
+    background-size: 30px;
+    width: 30px;
+    height: 30px;
+    margin-right: .5em;   
+}
+.ui-menuitem-icon.ui-icon.custom-icon.flag-br{
+    background-image: url('../images/brazil-flag.png');
+}
+.ui-menuitem-icon.ui-icon.custom-icon.flag-us{
+    background-image: url('../images/usa-flag.png');
+}
+
+/*largura do submenu*/
+.ui-menu .ui-menu-parent .ui-menu-child{
+    width: auto;
+}
+.ui-menu .ui-menuitem{
+    float: none;
+}
+
+/*PRIMEFACES Fim*/
+
+/*html custons*/
+html * {font-family: Arial !important;}
+body {color: black;margin: 0; padding: 0;}
+h4, h5, h6 {margin-bottom: 5px;}
+a {text-decoration: none;}
+a:visited{color: black;}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+tr, td {margin: 0; padding: 0;}
+
+/*OTHERS*/
+.landpageMainMsg {margin: 50px 0px 50px 0px;}
+.formTitle{text-align: center;}
+
+/*FORM*/
+.framedLeftPanel {
+    width: 60%;
     position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);
 }
-.formSubmitBtn{float: right;}
+.formButton{float: right; margin-top: 15px;}
 .button{}
-.label{}
+
+.label{font-style: italic; display: block; margin-top: 1em;}
+.fieldError {color:red; font-size: .75em; margin-left: .5em; float: right;}
 .inputField {
     border-style: solid; 
     border-color: black; border-width: 1px; 
     /*border-radius: 20px;*/ 
-    padding: 10px 20px; width: 100%; box-sizing: border-box;
+    padding: 5px; width: 100%; box-sizing: border-box;
+    font-size: 15px;
 }
 .required {color:red;}
 .panelGrid{width: 100%}
-.customExtraFooter {display: table; margin-top: 50px; text-align: right; float: right;}
-.plainText {color: black;}
+.customExtraFooter {display: table; margin-top: 25px; text-align: right; float: right;}
+.plainText {color: black; margin: 0;}
 .tinyText {font-size: 11px;}
 
-/*mensagens de erro*/
 .errorLabel {font-style:italic; color:red; }
-.errorMessage {text-align: center; font-weight:normal; color:black; font-size: 12px; box-sizing: border-box;}
 .actionMessage {text-align: center; font-weight:normal; color:green; font-size: 12px; box-sizing: border-box;}
 ul{margin: 0px; padding: 0px;}
 li.errorMessage {list-style-type: none; color: red; font-size: 15px; font-weight: bold; padding: 0;}
@@ -45,9 +88,21 @@ ul.actionMessage {list-style-type: none; color: green; font-size: 15px; font-wei
 
 /* On screens that are Xpx or greater*/
 @media screen and (min-width: 720px) {
-    
-    .inputPanelOffLogin {
-        width: 21%;
-        position: absolute; top: 20%; left: 12.5%; transform: translateX(-20%) translateY(-12.5%);}
+    .framedLeftPanel {
+        width: 40%;
+    }
+}
 
+/* On screens that are Xpx or greater*/
+@media screen and (min-width: 1024px) {
+    .framedLeftPanel {
+        width: 25%;
+        position: absolute; top: 20%; left: 12.5%; transform: translateX(-20%) translateY(-12.5%);}
+}
+
+/* On screens that are Xpx or greater*/
+@media screen and (min-width: 1280px) {
+    .framedLeftPanel {
+        width: 20%;
+        position: absolute; top: 20%; left: 12.5%; transform: translateX(-20%) translateY(-12.5%);}
 }

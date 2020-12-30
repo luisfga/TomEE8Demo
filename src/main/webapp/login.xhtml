@@ -8,32 +8,36 @@
     <ui:composition template="/templates/default/main.xhtml">
         <ui:define name="content">
             
-            <div class="inputPanelOffLogin">
-                <h1 class="h1Center"><h:outputText value="#{global['header.login']}"/></h1>
+            <div class="framedLeftPanel">
+                <h2 class="formTitle"><h:outputText value="#{global['header.login']}"/></h2>
                 <h:form>
                     <h:panelGrid class="panelGrid">
                         <p:messages globalOnly="true" escape="false"/>
 
-                        <h:outputLabel value="#{global['email']}" for="email" class="label"/>
-                        <h:inputText id="email" value="#{login.email}" class="inputField" required="true" requiredMessage="#{global['email']} #{global['validation.error.required']}"/>
-                        <h:message for="email" errorClass="errorMessage" warnClass="warn" infoClass="info"></h:message>
+                        <h:outputLabel value="#{global['email']}" for="email" class="label">
+                            <h:message for="email" errorClass="fieldError" warnClass="warn" infoClass="info"></h:message>
+                        </h:outputLabel>
+                        <h:inputText id="email" value="#{login.email}" class="inputField" required="true" requiredMessage="#{global['validation.error.required']}"/>
+                        
+                        
+                        <h:outputLabel value="#{global['password']}" for="password" class="label">
+                            <h:message for="password" errorClass="fieldError" warnClass="warn" infoClass="info"></h:message>
+                        </h:outputLabel>
+                        <h:inputSecret id="password" value="#{login.password}" class="inputField" required="true" requiredMessage="#{global['validation.error.required']}"/>
+                        
 
-                        <h:outputLabel value="#{global['password']}" for="password" class="label"/>
-                        <h:inputSecret id="password" value="#{login.password}" class="inputField" required="true" requiredMessage="#{global['password']} #{global['validation.error.required']}"/>
-                        <h:message for="password" errorClass="errorMessage" warnClass="warn" infoClass="info"></h:message>
-
-                        <br/>
-                        <h:commandButton action="#{login.execute()}" value="#{global['login']}" styleClass="button formSubmitBtn"/>
+                        <h:commandButton action="#{login.execute()}" value="#{global['login']}" class="button formButton"/>
 
                     </h:panelGrid>
                 </h:form>
 
                 <div class="customExtraFooter">
                     <div class="plainText"><h:outputText value="#{global['question.dont.have.account']}"/></div>
+
                     <br/>
                     <h:button value="#{global['new.account']}" outcome="/register" class="button"/>
 
-                    <br/><br/><br/><br/>
+                    <br/><br/><br/>
 
                     <h:link value="#{global['question.forgot.password']}" outcome="/passwordRecover" class="tinyText"/>
                 </div>                    

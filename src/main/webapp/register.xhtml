@@ -3,44 +3,49 @@
       xmlns:h="http://java.sun.com/jsf/html"  
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"> 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"> 
  
     <ui:composition template="/templates/default/main.xhtml">
         <ui:define name="content">
             
-            <div class="inputPanelOffLogin">
-                <h1 class="h1Center"><h:outputText value="#{global['header.register']}"/></h1>
+            <div class="framedLeftPanel">
+                <h2 class="formTitle"><h:outputText value="#{global['header.register']}"/></h2>
 
                 <h:form>
                     <h:panelGrid class="panelGrid">
                         <p:messages globalOnly="true" escape="false"/>
 
-                        <h:outputLabel value="#{global['birthday']}" for="birthday" class="label"/>
-                        <p:datePicker id="birthday" value="#{register.birthday}" showIcon="true" readonlyInput="true" locale="#{localeBean.language}" required="true" requiredMessage="#{global['birthday']} #{global['validation.error.required']}" converter="LocalDateConverter"/>
-                        <h:message for="birthday" errorClass="errorMessage" warnClass="warn" infoClass="info"/>
+                        <h:outputLabel value="#{global['birthday']}" for="birthday" class="label">
+                            <h:message for="birthday" errorClass="fieldError" warnClass="warn" infoClass="info"/>
+                        </h:outputLabel>
+                        <h:inputText pt:type="date" id="birthday" value="#{register.birthday}" class="inputField" required="true" requiredMessage="#{global['validation.error.required']}" converter="LocalDateConverter"/>
 
-                        <h:outputLabel value="#{global['userName']}" for="userName" class="label"/>
-                        <h:inputText id="userName" value="#{register.userName}" class="inputField" required="true" requiredMessage="#{global['userName']} #{global['validation.error.required']}"/>
-                        <h:message for="userName" errorClass="errorMessage" warnClass="warn" infoClass="info"/>
+                        <h:outputLabel value="#{global['userName']}" for="userName" class="label">
+                            <h:message for="userName" errorClass="fieldError" warnClass="warn" infoClass="info"/>
+                        </h:outputLabel>
+                        <h:inputText id="userName" value="#{register.userName}" class="inputField" required="true" requiredMessage="#{global['validation.error.required']}"/>
 
-                        <h:outputLabel value="#{global['email']}" for="email" class="label"/>
-                        <h:inputText id="email" value="#{register.email}" class="inputField" required="true" requiredMessage="#{global['email']} #{global['validation.error.required']}" validatorMessage="#{global['validation.error.invalid.email']}">
+                        <h:outputLabel value="#{global['email']}" for="email" class="label">
+                            <h:message for="email" errorClass="fieldError" warnClass="warn" infoClass="info"/>
+                        </h:outputLabel>
+                        <h:inputText id="email" value="#{register.email}" class="inputField" required="true" requiredMessage="#{global['validation.error.required']}" validatorMessage="#{global['validation.error.invalid.email']}">
                             <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
                         </h:inputText>
-                        <h:message for="email" errorClass="errorMessage" warnClass="warn" infoClass="info"/>
 
                         <f:event listener="#{register.validatePasswordEquality}" type="postValidate" />
                         
-                        <h:outputLabel value="#{global['password']}" for="password" class="label"/>
-                        <h:inputSecret id="password" value="#{register.password}" class="inputField" required="true" requiredMessage="#{global['password']} #{global['validation.error.required']}"/>
-                        <h:message for="password" errorClass="errorMessage" warnClass="warn" infoClass="info"/>
+                        <h:outputLabel value="#{global['password']}" for="password" class="label">
+                            <h:message for="password" errorClass="fieldError" warnClass="warn" infoClass="info"/>
+                        </h:outputLabel>
+                        <h:inputSecret id="password" value="#{register.password}" class="inputField" required="true" requiredMessage="#{global['validation.error.required']}"/>
 
-                        <h:outputLabel value="#{global['passwordConfirmation']}" for="passwordConfirmation" class="label"/>
-                        <h:inputSecret id="passwordConfirmation" value="#{register.passwordConfirmation}" class="inputField" required="true" requiredMessage="#{global['passwordConfirmation']} #{global['validation.error.required']}"/>
-                        <h:message for="passwordConfirmation" errorClass="errorMessage" warnClass="warn" infoClass="info"/>
+                        <h:outputLabel value="#{global['passwordConfirmation']}" for="passwordConfirmation" class="label">
+                            <h:message for="passwordConfirmation" errorClass="fieldError" warnClass="warn" infoClass="info"/>
+                        </h:outputLabel>
+                        <h:inputSecret id="passwordConfirmation" value="#{register.passwordConfirmation}" class="inputField" required="true" requiredMessage="#{global['validation.error.required']}"/>
 
-                        <br/><br/>
-                        <h:commandButton action="#{register.execute()}" value="#{global['register']}" class="button" style="float: right"/>
+                        <h:commandButton action="#{register.execute()}" value="#{global['register']}" class="button formButton"/>
 
                     </h:panelGrid>
                 </h:form>
