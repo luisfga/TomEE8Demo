@@ -10,23 +10,22 @@
     <f:view locale="#{localeBean.locale}">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
-        <title><h:outputText value="global.main.title"/></title>
+        <title><h:outputText value="#{global['main.title']}"/></title>
         <link rel="stylesheet" href="#{request.contextPath}/css/main.css"/>
         <link rel="stylesheet" href="#{request.contextPath}/css/custom_theme.css"/>
     </h:head>
 
     <h:body>
         <h:form>
-            <p:menubar autoDisplay="false" toggleEvent="click">
+            <p:menubar autoDisplay="false">
                 <p:menuitem value="#{global['wellcome']}, #{dashboardBean.username}" disabled="true" style="opacity: 1;"/>
-                <p:submenu label="#{global['options']}" icon="pi pi-cog" style="float: right;">
-                    <p:submenu label="#{global['language']}" icon="pi pi-clone">
-                        <p:menuitem value="pt-BR" action="#{localeBean.setLanguage('pt','BR')}" ajax="false"/>
-                        <p:menuitem value="en-US" action="#{localeBean.setLanguage('en','US')}" ajax="false"/>
+                <p:submenu label="#{global['options']}" style="float: right;">
+                    <p:submenu label="#{global['language']}">
+                        <p:menuitem value="Português" action="#{localeBean.setLanguage('pt','BR')}" icon="custom-icon flag-br" ajax="false"/>
+                        <p:menuitem value="English" action="#{localeBean.setLanguage('en','US')}" icon="custom-icon flag-us" ajax="false"/>
                     </p:submenu>
-                    <p:menuitem value="Logout" action="#{login.logout()}" ajax="false" style="font-weight: bold;"/>
+                    <p:menuitem value="About" outcome="/status" ajax="false"/>
                 </p:submenu>
-
             </p:menubar>
         </h:form>
     </h:body>

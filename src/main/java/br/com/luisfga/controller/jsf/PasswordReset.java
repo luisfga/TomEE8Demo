@@ -132,7 +132,8 @@ public class PasswordReset extends JsfBeanSupport{
             
             //TODO revisar essa forma de tentar pegar o ip do cliente.
             HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-            logger.log(Level.SEVERE, "IP suspeito {"+getClientIpAddress(request)+"}", foException);
+            logger.log(Level.SEVERE, ForbidenOperationException.class.getSimpleName() 
+                    + " -> IP suspeito '{'{0}'}'", getClientIpAddress(request));
 
         } catch (TimeHasExpiredException teException) {
 
