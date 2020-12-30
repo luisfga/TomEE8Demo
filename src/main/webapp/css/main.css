@@ -2,8 +2,10 @@
 /*customização das mensagens do primefaces*/
 .ui-messages{text-align: center; font-weight:normal; font-size: 12px;}
 .ui-messages li {margin: 5px 0px 5px 0px;}
-.ui-messages-error{color: red}
-.ui-messages-info{color: #0099ff}
+.ui-messages-error{color: red; background-color: transparent; border: 0; margin: 0; padding: 0;}
+.ui-messages-info{color: #0099ff; background-color: transparent; border: 0; margin: 0; padding: 0;}
+.ui-messages li{margin: 0;}
+.ui-messages.ui-messages-noicon ul{margin: 0;}
 
 /*retirar ícones do texto do menu*/
 /*.ui-widget-content .ui-icon {background-image: none;}*/
@@ -12,6 +14,21 @@
 span.ui-icon-triangle-1-s, span.ui-icon-triangle-1-e{display: none;}
 .ui-menubar .ui-menuitem-link{padding: .2em .2em;}
 .ui-menu .ui-menuitem-link{line-height: normal;}
+
+/*background dos submenus*/
+.ui-menu .ui-menu-child{
+    background: white;
+}
+
+/*retirar background da barra de menu*/
+.ui-menu {background: transparent;}
+/*retirar efeito 'hover' do background do link de menu*/
+.ui-state-hover, .ui-widget-content .ui-state-hover{background: #30AAFF;}
+.ui-corner-all{border-radius: 1px;}
+/*retira borda da barra de menu*/
+.ui-widget-content{
+    border: 0;
+}
 
 /*link de 'menuitem'*/
 .ui-menu .ui-menuitem-link{
@@ -22,13 +39,24 @@ span.ui-icon-triangle-1-s, span.ui-icon-triangle-1-e{display: none;}
     background-size: 30px;
     width: 30px;
     height: 30px;
-    margin-right: .5em;   
+    margin-right: .5em;
 }
 .ui-menuitem-icon.ui-icon.custom-icon.flag-br{
     background-image: url('../images/brazil-flag.png');
 }
 .ui-menuitem-icon.ui-icon.custom-icon.flag-us{
     background-image: url('../images/usa-flag.png');
+}
+.custom-icon-tiny{
+    background-size: 15px;
+    width: 15px;
+    height: 15px;
+    margin-right: .2em;
+}
+/*icone da raiz de menu*/
+.ui-widget-content .ui-icon.custom-icon-tiny.settings{
+    background-image: url('../images/settings.svg');
+    color: #0099ff;
 }
 
 /*largura do submenu*/
@@ -38,48 +66,63 @@ span.ui-icon-triangle-1-s, span.ui-icon-triangle-1-e{display: none;}
 .ui-menu .ui-menuitem{
     float: none;
 }
-
 /*PRIMEFACES Fim*/
 
-/*html custons*/
+/*HTML customs*/
 html * {font-family: Arial !important;}
-body {color: black;margin: 0; padding: 0;}
+body {color: black;margin: 0; padding: 0; background-image: url(../images/light-blue-wave-background.jpg);}
 h4, h5, h6 {margin-bottom: 5px;}
-a {text-decoration: none;}
-a:visited{color: black;}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+a {text-decoration: none; color: black;}
+a:hover{color: #0099ff;}
+table {border-collapse: collapse;border-spacing: 0;}
 tr, td {margin: 0; padding: 0;}
 
-/*OTHERS*/
+/*APP Customs*/
 .landpageMainMsg {margin: 50px 0px 50px 0px;}
 .formTitle{text-align: center;}
-
-/*FORM*/
+.button {
+    border: 0;
+    border-radius: 4px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #1080FF;
+}
+.button:active{
+    background-color: #60BBFF;
+}
+.indexButton{
+    background-color: #2099FF;
+}
 .framedLeftPanel {
     width: 60%;
     position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);
+    background-color: #80bbff;
+    padding: 0px 30px 20px 30px;
+    border-radius: 15px;
 }
-.formButton{float: right; margin-top: 15px;}
-.button{}
-
-.label{font-style: italic; display: block; margin-top: 1em;}
-.fieldError {color:red; font-size: .75em; margin-left: .5em; float: right;}
-.inputField {
-    border-style: solid; 
-    border-color: black; border-width: 1px; 
-    /*border-radius: 20px;*/ 
-    padding: 5px; width: 100%; box-sizing: border-box;
-    font-size: 15px;
+.noBgColor{
+    background-color: transparent;
 }
-.required {color:red;}
-.panelGrid{width: 100%}
-.customExtraFooter {display: table; margin-top: 25px; text-align: right; float: right;}
 .plainText {color: black; margin: 0;}
 .tinyText {font-size: 11px;}
 
+/*FORM*/
+/*layout*/
+.inputField {
+    border: 0; 
+    border-radius: 2px; 
+    padding: 5px; width: 100%; box-sizing: border-box;
+    font-size: 15px;
+}
+.formButton{float: right; margin-top: 15px;}
+.label{display: block; margin-top: 1em;}
+.panelGrid{width: 100%}
+.customExtraFooter {display: table; margin-top: 50px; text-align: right; float: right;}
+/*mensagens de erro*/
+.fieldError {color:red; font-size: .75em; margin-left: .5em; float: right;}
+.required {color:red;}
 .errorLabel {font-style:italic; color:red; }
 .actionMessage {text-align: center; font-weight:normal; color:green; font-size: 12px; box-sizing: border-box;}
 ul{margin: 0px; padding: 0px;}

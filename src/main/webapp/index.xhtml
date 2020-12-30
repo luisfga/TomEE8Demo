@@ -6,11 +6,11 @@
     <ui:composition template="/templates/default/main.xhtml">
         <ui:define name="content">
         
-        <div class="framedLeftPanel">
-            <p:messages globalOnly="true" escape="false"/>
+        <div class="framedLeftPanel noBgColor">
+            <p:messages globalOnly="true" escape="false" showIcon="false"/>
             <h1 class="wellcome"><h:outputText value="${global['landing.page.wellcome']}"/></h1>
             <div class="customExtraFooter">
-                <h:button value="${global['enter']}" outcome="/secure/dashboard" class="button"/>
+                <h:button value="#{global['enter']}" outcome="/secure/dashboard" class="button indexButton"/>
             </div>
         </div>
         </ui:define>

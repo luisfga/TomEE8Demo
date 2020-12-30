@@ -13,6 +13,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
             <title><h:outputText value="#{global['main.title']}"/></title>
             <link rel="stylesheet" href="css/main.css"/>
+            <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
             <ui:insert name="headAppend"/>
         </h:head>
 
@@ -20,12 +21,12 @@
             <f:view transient="true">
                 <h:form>
                     <p:menubar autoDisplay="false">
-                        <p:submenu label="#{global['options']}" style="float: right;">
+                        <p:submenu label="#{global['options']}" icon="custom-icon-tiny settings" style="float: right;">
                             <p:submenu label="#{global['language']}">
                                 <p:menuitem value="Português" action="#{localeBean.setLanguage('pt','BR')}" icon="custom-icon flag-br" ajax="false"/>
                                 <p:menuitem value="English" action="#{localeBean.setLanguage('en','US')}" icon="custom-icon flag-us" ajax="false"/>
                             </p:submenu>
-                            <p:menuitem value="About" outcome="/status" ajax="false"/>
+                            <p:menuitem value="#{global['about']}" outcome="/status" ajax="false"/>
                         </p:submenu>
                     </p:menubar>
                 </h:form>
