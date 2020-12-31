@@ -69,15 +69,22 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
             
-    <listener>
-        <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
-    </listener>
     <context-param>
         <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
         <param-value>true</param-value>
     </context-param>
+    
+    <!--Opção para mapeamento automático dos arquivos .xhtml para que possam ser chamados como actions, 
+    sem a necessidade de extensões '.xhtml', '.jsf' ou '.faces' por exemplo-->
     <context-param>
         <param-name>org.apache.myfaces.AUTOMATIC_EXTENSIONLESS_MAPPING</param-name>
         <param-value>true</param-value>
     </context-param>
+    
+    <!--Esta declaração é necessária apenas para o Tomcat/Tomee. 
+        Há um bug que o impede de reconhecer a mesma declaração feita no web-fragment.xml incluso no MyFaces. 
+        Referência: https://stackoverflow.com/questions/18508329/customize-facesservlet-url-pattern-to-get-rid-of-xhtml-extension/65462799?noredirect=1#comment115757119_65462799 -->
+    <listener>
+        <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
+    </listener>
 </web-app>
