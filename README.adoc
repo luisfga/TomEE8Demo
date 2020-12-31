@@ -16,7 +16,7 @@ java -jar target/tomee-embedded-exec.jar
 * https://github.com/luisfga/TomEE8Demo/blob/master/src/main/resources/META-INF/persistence.xml[persistence.xml] using tomee's default OpenJPA;
 * some https://github.com/luisfga/TomEE8Demo/tree/master/src/main/java/br/com/luisfga/domain/entities[entities] + bean validation annotations;
 * database https://github.com/luisfga/tomee-embedded/blob/master/src/main/webapp/WEB-INF/resources.xml[<Resource>] for tomee (hsqldb pointing to /appdata/tomee-demo-db file);
-* a https://github.com/luisfga/tomee-embedded/master/jpa/src/main/java/br/com/luisfga/domain/config/DatabaseSetup.java[DatabaseSetup] to load some required data (e.g. roles).
+* a https://github.com/luisfga/tomee-embedded/master/jpa/src/main/java/br/com/luisfga/config/DatabaseSetup.java[DatabaseSetup] to load some required data (e.g. roles).
 
 ### JSF
 
