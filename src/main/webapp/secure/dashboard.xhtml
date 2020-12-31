@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="#{localeBean.language}" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view locale="#{localeBean.locale}">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+        <title><h:outputText value="#{global['main.title']}"/></title>
+        <link rel="stylesheet" href="#{request.contextPath}/css/main.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/css/custom_theme.css"/>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <p:menubar autoDisplay="false">
+                <p:menuitem value="#{global['wellcome']}, #{dashboardBean.username}" disabled="true" style="opacity: 1;"/>
+                <p:submenu label="#{global['options']}" style="float: right;">
+                    <p:submenu label="#{global['language']}">
+                        <p:menuitem value="Português" action="#{localeBean.setLanguage('pt','BR')}" icon="custom-icon flag-br" ajax="false"/>
+                        <p:menuitem value="English" action="#{localeBean.setLanguage('en','US')}" icon="custom-icon flag-us" ajax="false"/>
+                    </p:submenu>
+                    <p:menuitem value="About" outcome="/status" ajax="false"/>
+                    <p:menuitem value="Logout" action="#{login.logout()}" ajax="false" style="font-weight: bold;"/>
+                </p:submenu>
+            </p:menubar>
+        </h:form>
+    </h:body>
+    </f:view>
+</html>

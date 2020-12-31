@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="#{localeBean.language}" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <f:view locale="#{localeBean.locale}">
+        <h:head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+            <title><h:outputText value="#{global['main.title']}"/></title>
+            <link rel="stylesheet" href="css/main.css"/>
+            <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+            <ui:insert name="headAppend"/>
+        </h:head>
+
+        <h:body>
+            <f:view transient="true">
+                <h:form>
+                    <p:menubar autoDisplay="false">
+                        <p:submenu label="#{global['options']}" icon="custom-icon-tiny settings" style="float: right;">
+                            <p:submenu label="#{global['language']}">
+                                <p:menuitem value="Português" action="#{localeBean.setLanguage('pt','BR')}" icon="custom-icon flag-br" ajax="false"/>
+                                <p:menuitem value="English" action="#{localeBean.setLanguage('en','US')}" icon="custom-icon flag-us" ajax="false"/>
+                            </p:submenu>
+                            <p:menuitem value="#{global['about']}" outcome="/status" ajax="false"/>
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+            </f:view>
+
+            <ui:insert name="content" />
+            
+        </h:body>
+    </f:view>
+</html>

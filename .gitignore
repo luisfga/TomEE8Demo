@@ -52,3 +52,4 @@ build/
 /nbactions.xml
 /nb-configuration.xml
 .distribution
+/faces-config.NavData

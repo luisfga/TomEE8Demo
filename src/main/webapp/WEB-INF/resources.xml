@@ -24,7 +24,7 @@
         mail.transport.protocol = smtp
         mail.smtp.auth = true
         mail.smtp.starttls.enable = true
-        mail.debug = true <!-- setar 'false' pra produção -->
+        mail.debug = false <!-- setar 'false' pra produção -->
         
         <!-- variáveis de ambiente necessárias no sistema -->
         mail.smtp.host = ${APP_MAIL_SESSION_HOST}

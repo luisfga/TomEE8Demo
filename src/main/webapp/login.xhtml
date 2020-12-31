@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">  
+ 
+    <ui:composition template="/templates/default/main.xhtml">
+        <ui:define name="content">
+            
+            <div class="framedLeftPanel">
+                <h2 class="formTitle"><h:outputText value="#{global['header.login']}"/></h2>
+                <h:form>
+                    <h:panelGrid class="panelGrid">
+                        <p:messages globalOnly="true" escape="false" showIcon="false"/>
+
+                        <h:outputLabel value="#{global['email']}" for="email" class="label">
+                            <h:message for="email" errorClass="fieldError" warnClass="warn" infoClass="info"></h:message>
+                        </h:outputLabel>
+                        <h:inputText id="email" value="#{login.email}" class="inputField" required="true" requiredMessage="#{global['validation.error.required']}"/>
+                        
+                        <h:outputLabel value="#{global['password']}" for="password" class="label">
+                            <h:message for="password" errorClass="fieldError" warnClass="warn" infoClass="info"></h:message>
+                        </h:outputLabel>
+                        <h:inputSecret id="password" value="#{login.password}" class="inputField" required="true" requiredMessage="#{global['validation.error.required']}"/>
+                        
+                        <h:commandButton action="#{login.execute()}" value="#{global['login']}" class="button formButton"/>
+                    </h:panelGrid>
+                </h:form>
+
+                <div class="customExtraFooter">
+                    <div class="plainText"><h:outputText value="#{global['question.dont.have.account']}"/></div>
+
+                    <h:button value="#{global['new.account']}" outcome="/register" class="button formButton"/>
+
+                    <br/><br/><br/>
+
+                    <h:link value="#{global['question.forgot.password']}" outcome="/passwordRecover" class="tinyText"/>
+                </div>                    
+            </div>
+            
+        </ui:define>
+    </ui:composition>        
+ 
+</html>
