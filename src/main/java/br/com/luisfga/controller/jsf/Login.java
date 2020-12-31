@@ -8,8 +8,8 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.ServletContext;
 
 @Named
 @RequestScoped
@@ -18,6 +18,9 @@ public class Login extends JsfBeanSupport{
     private static final Logger logger = Logger.getLogger(Login.class.getName());
     
     @EJB LoginUseCase loginUseCase;
+    
+    @Inject
+    private LocaleBean localeBean;
     
     private String token;
     public String getToken() { return token; }
@@ -73,9 +76,9 @@ public class Login extends JsfBeanSupport{
             // The component id is null, so this message is considered as a view message
             FacesContext.getCurrentInstance().addMessage(null, message);            
 
-            ServletContext ctx = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-            loginUseCase.enviarEmailConfirmacaoNovoUsuario(ctx.getContextPath(),email);
-
+            //Enviar email para o usuário
+            loginUseCase.enviarEmailConfirmacaoNovoUsuario(email, localeBean.getLocale());
+                
             return "login"; // Return empty token for navigation handler
             
         }

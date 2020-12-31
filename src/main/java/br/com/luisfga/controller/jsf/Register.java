@@ -4,7 +4,6 @@ import br.com.luisfga.service.RegisterUseCase;
 import br.com.luisfga.service.exceptions.EmailAlreadyTakenException;
 
 import java.time.LocalDate;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -12,18 +11,18 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
+import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.ServletContext;
 
 @Named
 @RequestScoped
 public class Register extends JsfBeanSupport{
 
-    private final Logger logger = Logger.getLogger(Register.class.getName());
+    @EJB 
+    private RegisterUseCase registerUseCase;
     
-    private static final long serialVersionUID = 1L;
-    
-    @EJB private RegisterUseCase registerUseCase;
+    @Inject
+    private LocaleBean localeBean;
 
     private String token;
     public String getToken() { return token; }
@@ -108,8 +107,8 @@ public class Register extends JsfBeanSupport{
         try {
             registerUseCase.registerNewAppUser(email, password, userName, birthday);
             
-            ServletContext ctx = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
-            registerUseCase.enviarEmailConfirmacaoNovoUsuario(ctx.getContextPath(), email);
+            //enviar email para confirmação
+            registerUseCase.enviarEmailConfirmacaoNovoUsuario(email, localeBean.getLocale());
             
         } catch (EmailAlreadyTakenException ex) {
 

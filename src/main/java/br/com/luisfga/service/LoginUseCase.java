@@ -1,8 +1,10 @@
 package br.com.luisfga.service;
 
+import br.com.luisfga.domain.entities.AppUser;
 import br.com.luisfga.service.exceptions.LoginException;
 import br.com.luisfga.service.exceptions.PendingEmailConfirmationException;
 import br.com.luisfga.service.exceptions.PendingEmailConfirmationShiroAuthenticationException;
+import java.util.Locale;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -43,15 +45,20 @@ public class LoginUseCase {
 
     }
     
+    //pegar os dados do usuário que existe mas ainda não foi habilitado
+    public AppUser getUserFailedWithPendencies(String email){
+        return em.find(AppUser.class, email);
+    }
+    
     public void logout() {
 
         SecurityUtils.getSubject().logout();
         
     }
     
-    public void enviarEmailConfirmacaoNovoUsuario(String contextPath, String email) {
+    public void enviarEmailConfirmacaoNovoUsuario(String destEmail, Locale locale) {
 
-        mailHelper.enviarEmailConfirmacaoNovoUsuario(contextPath, email);
+        mailHelper.enviarEmailConfirmacaoNovoUsuario(destEmail, locale);
 
     }
 

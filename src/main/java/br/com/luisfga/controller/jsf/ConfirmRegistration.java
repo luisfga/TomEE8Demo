@@ -29,8 +29,6 @@ public class ConfirmRegistration extends JsfBeanSupport{
     //O código é executado sem error, porém as mensagens não aparecem para o usuário.
     public String execute(){
         
-        System.out.println("Encoded User Email = " + encodedUserEmail);
-        
         try {
             confirmRegistrationUseCase.confirmRegistration(encodedUserEmail);
             

@@ -1,9 +1,13 @@
 package br.com.luisfga.service;
 
+import br.com.luisfga.config.Property;
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -30,9 +34,68 @@ public class MailHelper {
     
     @Resource
     private Session applicationMailSession;
+    
+    @Inject 
+    @Property("app.name")
+    private String appName;
 
-    @Resource(name = "appBaseHostName")
-    private String appBaseHostName;
+    @Inject 
+    @Property("app.base.hostname")
+    private String appBaseHostname;
+    
+    @Inject 
+    @Property("app.context.root")
+    private String appContextRoot;
+    
+    public void enviarEmailConfirmacaoNovoUsuario(String email, Locale locale) {
+        try {
+            enviarEmail(email, locale, "confirmation.email.subject", "confirmation.email.message", getParametrosEmailConfirmacao(email));
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(MailHelper.class.getName()).log(Level.SEVERE, "Erro ao pegar parâmetros para o email de confirmação de nova conta", ex);
+        }
+    }
+    
+    public void enviarEmailResetSenha(String email, Locale locale, String windowToken) {
+        try {
+            enviarEmail(email, locale, "password.reset.email.subject", "password.reset.email.message", getParametrosEmailRedefinicaoSenha(email, windowToken));
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(MailHelper.class.getName()).log(Level.SEVERE, "Erro ao pegar parâmetros para o email de confirmação de nova conta", ex);
+        }
+    }    
+    
+    private void enviarEmail(String email, Locale locale, String subjectKey, String messageKey, Object[] messageParams){
+        Executors.newSingleThreadExecutor().execute(() -> {
+            
+            ResourceBundle bundle = ResourceBundle.getBundle("mail", locale);
+            
+            try {
+
+                String messageText = String.format(bundle.getString(messageKey),messageParams);
+                
+                Message message = new MimeMessage(applicationMailSession);
+
+                message.setFrom(new InternetAddress(applicationMailSession.getProperty("mail.smtp.user"), appName));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
+                message.setSubject(bundle.getString(subjectKey));
+
+                MimeBodyPart mimeBodyPart = new MimeBodyPart();
+                mimeBodyPart.setContent(messageText, "text/html; charset=UTF-8");
+
+                Multipart multipart = new MimeMultipart();
+                multipart.addBodyPart(mimeBodyPart);
+
+                message.setContent(multipart);
+
+                Transport.send(message);
+                
+            } catch (AddressException ex){
+                //TODO - fazer o que, aqui?
+            } catch (MessagingException | UnsupportedEncodingException ex) {
+                //TODO - fazer o que, aqui?
+            }
+            
+        });
+    }
     
     private String getUserName(String email){
         Query findUserNameByEmail = em.createNamedQuery("AppUser.findUserNameByEmail");
@@ -40,95 +103,22 @@ public class MailHelper {
         return (String) findUserNameByEmail.getSingleResult();
     }
     
-    public void enviarEmailResetSenha(String contextPath, String email, String windowToken) {
-
-        Executors.newSingleThreadExecutor().execute(() -> {
-            
-            try {
-
-                Message message = new MimeMessage(applicationMailSession);
-                message.setFrom(new InternetAddress(applicationMailSession.getProperty("mail.smtp.user"), contextPath.replace("/", ""))); // Remetente
-                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-                message.setSubject("Redefinição de Senha");// Assunto
-
-                //corpo da mensagem
-                String style = "<style>"
-                                + ".button{"
-                                    + "background-color: #0099ff; color: white; padding: 5px 10px 5px 10px; "
-                                    + "vertical-align: middle; text-align: center; text-decoration: none; border-radius: 20px; "
-                                    + "font-size: 15px;"
-                                + "}"
-                            + "</style>";
-
-                String msg = style
-                        + "<h2>Olá, "+getUserName(email)+".</h2>"
-                        + "<h4>Utilize o botão abaixo para acessar a página de redefinição de senha</h4>"
-                        + "<a class=\"button\" href=\""+appBaseHostName+contextPath+"/passwordReset"
-                        + "?encodedUserEmail="+Base64.getEncoder().encodeToString(email.getBytes("UTF-8"))
-                        + "&windowToken="+windowToken+"\">Redefinir Senha</a><br/><br/>"
-                        + "*Se não foi você que solicitou a redefinição de senha. Desconsidere essa mensagem.<br/><br/>"
-                        + "*Este link só funcionará uma única vez. Se necessário, solicite novamente.<br/><br/>";
-
-                MimeBodyPart mimeBodyPart = new MimeBodyPart();
-                mimeBodyPart.setContent(msg, "text/html; charset=UTF-8");
-
-                Multipart multipart = new MimeMultipart();
-                multipart.addBodyPart(mimeBodyPart);
-
-                message.setContent(multipart);
-
-                Transport.send(message);
-                
-            } catch (AddressException ex){
-                
-            } catch (MessagingException | UnsupportedEncodingException ex) {
-                
-            }
-        });
+    private Object[] getParametrosEmailConfirmacao(String email) throws UnsupportedEncodingException{
+        return new Object[]{
+            getUserName(email),//the user name of dest email
+            appBaseHostname, //the app hostname for building the link
+            appContextRoot, //the app context root to append on the link being built
+            Base64.getEncoder().encodeToString(email.getBytes("UTF-8"))//dest email encoded and used as link request parameter
+        };
     }
     
-    public void enviarEmailConfirmacaoNovoUsuario(String contextPath, String email) {
-
-        Executors.newSingleThreadExecutor().execute(() -> {
-            
-            try {
-                
-                Message message = new MimeMessage(applicationMailSession);
-
-                message.setFrom(new InternetAddress(applicationMailSession.getProperty("mail.smtp.user"), contextPath.replace("/", ""))); // Remetente
-                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-                message.setSubject("Confirmação de Nova Conta");// Assunto
-
-                //corpo da mensagem
-                String msg = ""
-                        + "<style>"
-                        + ".button{background-color: #0099ff; color: white; padding: 5px 10px 5px 10px; "
-                        + "vertical-align: middle; text-align: center; text-decoration: none; border-radius: 20px; "
-                        + "font-size: 15px;}"
-                        + "</style>"
-                        + "<h2>Olá, " + getUserName(email) + ".</h2>"
-                        + "<h4>Utilize o botão abaixo para confirmar sua conta recém criada</h4>"
-                        + "<a class=\"button\" href=\""
-                        + appBaseHostName + contextPath + "/confirmRegistration"
-                        + "?encodedUserEmail=" + Base64.getEncoder().encodeToString(email.getBytes("UTF-8"))  + "\">Confirmar</a><br/><br/>";
-
-                MimeBodyPart mimeBodyPart = new MimeBodyPart();
-                mimeBodyPart.setContent(msg, "text/html; charset=UTF-8");
-
-                Multipart multipart = new MimeMultipart();
-                multipart.addBodyPart(mimeBodyPart);
-
-                message.setContent(multipart);
-
-                Transport.send(message);
-                
-            } catch (AddressException ex){
-                
-            } catch (MessagingException | UnsupportedEncodingException ex) {
-                
-            }
-            
-        });
+    private Object[] getParametrosEmailRedefinicaoSenha(String email, String windowToken) throws UnsupportedEncodingException{
+        return new Object[]{
+            getUserName(email),//the user name of dest email
+            appBaseHostname, //the app hostname for building the link
+            appContextRoot, //the app context root to append on the link being built
+            Base64.getEncoder().encodeToString(email.getBytes("UTF-8")),//dest email encoded and used as link request parameter
+            windowToken
+        };
     }
-
 }

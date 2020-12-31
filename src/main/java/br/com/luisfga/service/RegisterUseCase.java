@@ -6,6 +6,7 @@ import br.com.luisfga.service.exceptions.EmailAlreadyTakenException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -59,9 +60,9 @@ public class RegisterUseCase {
 
     }
     
-    public void enviarEmailConfirmacaoNovoUsuario(String contextPath, String email) {
+    public void enviarEmailConfirmacaoNovoUsuario(String destEmail, Locale locale) {
         
-        mailHelper.enviarEmailConfirmacaoNovoUsuario(contextPath, email);
+        mailHelper.enviarEmailConfirmacaoNovoUsuario(destEmail, locale);
 
     }
     

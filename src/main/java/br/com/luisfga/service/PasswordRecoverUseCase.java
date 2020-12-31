@@ -1,12 +1,15 @@
 package br.com.luisfga.service;
 
+import br.com.luisfga.controller.jsf.LocaleBean;
 import br.com.luisfga.domain.entities.AppUser;
 import br.com.luisfga.domain.entities.AppUserOperationWindow;
 import br.com.luisfga.service.exceptions.WrongInfoException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.Locale;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -18,8 +21,9 @@ public class PasswordRecoverUseCase extends UseCase{
     @PersistenceContext(unitName = "applicationJpaUnit")
     public EntityManager em;
     
-    @EJB private MailHelper mailHelper;
-
+    @EJB 
+    private MailHelper mailHelper;
+    
     public void prepareRecovery(String email, LocalDate birthday, String token) 
             throws WrongInfoException {
         
@@ -51,9 +55,9 @@ public class PasswordRecoverUseCase extends UseCase{
         }
     }
     
-    public void enviarEmailResetSenha(String contextName, String email, String windowToken) {
+    public void enviarEmailResetSenha(String email, Locale locale,String windowToken) {
         
-        mailHelper.enviarEmailResetSenha(contextName, email, windowToken);
+        mailHelper.enviarEmailResetSenha(email, locale, windowToken);
 
     }
     

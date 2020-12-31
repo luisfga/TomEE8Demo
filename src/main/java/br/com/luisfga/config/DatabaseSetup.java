@@ -1,4 +1,4 @@
-package br.com.luisfga.domain.config;
+package br.com.luisfga.config;
 
 import br.com.luisfga.domain.entities.AppRole;
 import java.util.List;
