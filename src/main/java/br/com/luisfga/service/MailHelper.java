@@ -44,8 +44,8 @@ public class MailHelper {
     private String appBaseHostname;
     
     @Inject 
-    @Property("app.context.root")
-    private String appContextRoot;
+    @Property("app.context")
+    private String appContext;
     
     public void enviarEmailConfirmacaoNovoUsuario(String email, Locale locale) {
         try {
@@ -107,7 +107,7 @@ public class MailHelper {
         return new Object[]{
             getUserName(email),//the user name of dest email
             appBaseHostname, //the app hostname for building the link
-            appContextRoot, //the app context root to append on the link being built
+            appContext, //the app context root to append on the link being built
             Base64.getEncoder().encodeToString(email.getBytes("UTF-8"))//dest email encoded and used as link request parameter
         };
     }
@@ -116,7 +116,7 @@ public class MailHelper {
         return new Object[]{
             getUserName(email),//the user name of dest email
             appBaseHostname, //the app hostname for building the link
-            appContextRoot, //the app context root to append on the link being built
+            appContext, //the app context root to append on the link being built
             Base64.getEncoder().encodeToString(email.getBytes("UTF-8")),//dest email encoded and used as link request parameter
             windowToken
         };

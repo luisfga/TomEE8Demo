@@ -84,7 +84,7 @@
     </dependencies>
 
     <build>
-        <finalName>TomEE8Demo</finalName>
+        <finalName>luisfga-tomee-demo</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.tomee.maven</groupId>
@@ -93,7 +93,7 @@
                 <configuration>
                     <tomeeVersion>${tomee.version}</tomeeVersion>
                     <tomeeClassifier>webprofile</tomeeClassifier>
-                    <context>TomEE8Demo</context>
+                    <context>ROOT</context>
                 </configuration>
             </plugin>
         </plugins>

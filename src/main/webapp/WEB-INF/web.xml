@@ -7,12 +7,12 @@
     <display-name>Tomee Embedded</display-name>
     
     <welcome-file-list>
-        <welcome-file>/index.xhtml</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
     
-<!--    <error-page>
+    <error-page>
         <location>/error.xhtml</location>
-    </error-page>-->
+    </error-page>
     
     <env-entry>
         <description>Hostname a ser usado na construção de links para a aplicação</description>

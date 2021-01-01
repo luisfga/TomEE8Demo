@@ -1,8 +1,8 @@
-FROM tomcat:jdk8-openjdk-buster
+FROM openjdk:8
 
 RUN mkdir /app
 
-COPY target/luisfga-spring-demo.jar /app/luisfga-spring-demo.jar
+COPY target/luisfga-tomee-demo.jar /app/luisfga-tomee-demo-exec.jar
 
 #essas variáveis devem estar no localhost (em desenvolvimento) e no servidor, no caso do momento: Heroku (Config Vars)
 ENV APP_MAIL_SESSION_HOST=${APP_MAIL_SESSION_HOST}
@@ -11,12 +11,12 @@ ENV APP_MAIL_SESSION_USERNAME=${APP_MAIL_SESSION_USERNAME}
 ENV APP_MAIL_SESSION_PASSWORD=${APP_MAIL_SESSION_PASSWORD}
 
 #Development port and entry point
-#EXPOSE 8080
-#ENTRYPOINT [ "java", "-jar", "-Dserver.port=8080", "/app/luisfga-spring-demo.jar"]
+EXPOSE 8080
+ENTRYPOINT [ "java", "-jar", "-Dserver.port=8080", "/app/luisfga-tomee-demo-exec.jar"]
 
 #Production port and entry point
-EXPOSE ${PORT}
-ENTRYPOINT [ "java", "-Xss512k -XX:MaxRAM=500m", "-jar", "-Dserver.port=$PORT", "/app/luisfga-spring-demo.jar"]
+#EXPOSE ${PORT}
+#ENTRYPOINT [ "java", "-Xss512k -XX:MaxRAM=500m", "-jar", "-Dserver.port=$PORT", "/app/luisfga-tomee-demo-exec.jar"]
 
 #TIPS
 # não esquecer de -> mvn clean package
@@ -24,10 +24,10 @@ ENTRYPOINT [ "java", "-Xss512k -XX:MaxRAM=500m", "-jar", "-Dserver.port=$PORT", 
 #DOCKER TIPS
 # Excluir 'dangling' containers -> docker rmi $(docker images --filter "dangling=true" -q)
 
-# Build command DEV  -> docker build -t spring-demo:dev .
-# Build command PROD -> docker build -t spring-demo:prd .
+# Build command DEV  -> docker build -t luisfga-tomee-demo:dev .
+# Build command PROD -> docker build -t luisfga-tomee-demo:prd .
 
-# Run command (DEV) -> docker run -p 8080:8080 spring-demo:dev
+# Run command (DEV) -> docker run -p 8080:8080 luisfga-tomee-demo:dev
 
 # Listar containeres em execução -> docker ps
 
@@ -39,15 +39,15 @@ ENTRYPOINT [ "java", "-Xss512k -XX:MaxRAM=500m", "-jar", "-Dserver.port=$PORT", 
 
 #HEROKU TIPS
 #se há apenas um container, p.e. :prd
-#push -> heroku container:push web -a luisfga-spring-demo
-#release -> heroku container:release web -a luisfga-spring-demo
+#push -> heroku container:push web -a luisfga-tomee-demo
+#release -> heroku container:release web -a luisfga-tomee-demo
 
 #se buildou mais de um container, p.e. :dev e :prd é preciso marcar o container pra upload
 #-> docker tag <image> registry.heroku.com/<app>/<process-type>
-#por exemplo -> docker tag spring-demo:prd registry.heroku.com/luisfga-spring-demo/web
+#por exemplo -> docker tag spring-demo:prd registry.heroku.com/luisfga-tomee-demo/web
 
 #depois push
 #-> docker push registry.heroku.com/<app>/<process-type>
-#por exemplo -> docker push registry.heroku.com/luisfga-spring-demo/web
+#por exemplo -> docker push registry.heroku.com/luisfga-tomee-demo/web
 
-#depois, release normal -> heroku container:release web -a luisfga-spring-demo
+#depois, release normal -> heroku container:release web -a luisfga-tomee-demo
