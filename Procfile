@@ -1,0 +1,1 @@
+web: java -jar target/luisfga-tomee-demo-exec.jar run
