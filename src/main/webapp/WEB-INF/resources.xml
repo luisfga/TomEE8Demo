@@ -7,10 +7,10 @@
     
     <!-- Datasource para o TomEE -->
     <Resource id="applicationDS" type="DataSource">
-        JdbcDriver          org.hsqldb.jdbcDriver
-        JdbcUrl             jdbc:hsqldb:file:/appdata/tomee-demo-db
-        UserName            sa
-        Password            
+        JdbcDriver          org.postgresql.Driver
+        JdbcUrl             jdbc:postgresql://${TOMEE_DEMO_DB_HOST}/${TOMEE_DEMO_DATABASE}
+        UserName            ${TOMEE_DEMO_DB_USER}
+        Password            ${TOMEE_DEMO_DB_PASSWORD}
         JtaManaged          true
         DefaultAutoCommit   true
     </Resource>

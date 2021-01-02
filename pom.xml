@@ -54,6 +54,13 @@
             <artifactId>shiro-ehcache</artifactId>
             <version>${shiro.version}</version>
         </dependency>
+        
+        <!-- Driver PostgreSQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres.driver.version}</version>
+        </dependency>
     
         <!-- Java Mail que funciona! -->
         <dependency>
@@ -122,5 +129,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <shiro.version>1.6.0</shiro.version>
         <javamail.version>1.6.0</javamail.version>
+        <postgres.driver.version>42.2.14</postgres.driver.version>
     </properties>
 </project>
