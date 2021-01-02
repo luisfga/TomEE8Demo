@@ -101,6 +101,14 @@
                     <!-- a opção abaixo só funciona em tempo de build, para setar a porta do connector no server.xml. Não serve para o problema acima -->
                     <tomeeHttpPort>${PORT}</tomeeHttpPort>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
