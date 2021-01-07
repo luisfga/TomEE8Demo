@@ -1,6 +1,7 @@
 ## Apache TomEE 8 Standalone
 
 Everything ready-to-run with a simple `mvn clean install tomee:run`
+*Apenas a parte do sistema que precisa de envio de email precisará de configurações. Mais informações em 'src/main/webapp/WEB-INF/resources.xml'
 
 ### Uber Jar
 
@@ -8,8 +9,14 @@ If you'd like to build an uber-jar from the project, simply do:
 
 ----
 mvn clean install tomee:exec
-java -jar target/luisfga-tomee-demo-exec.jar
+
+java -DadditionalSystemProperties=-Dcustom.http.port=8080 -jar target/luisfga-tomee-demo-exec.jar
+*esta versão para o Heroku precisa desse parâmetro para fazer o bind com a porta aleatória criada por ele
 ----
+
+#### Dockerfile
+
+Há 2 arquivos: Dockerfile e Dockerfile.dev (ambos com as informações necessárias)
 
 ### JPA
 

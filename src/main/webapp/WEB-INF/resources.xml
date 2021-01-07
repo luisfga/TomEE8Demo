@@ -1,24 +1,24 @@
 <resources>
     
     <!-- Datasource utilizando variáveis de ambiente. -->
-    <Resource id="applicationDS" type="DataSource">
+<!--    <Resource id="applicationDS" type="DataSource">
         JdbcDriver          org.postgresql.Driver
         JdbcUrl             jdbc:postgresql://${TOMEE_DEMO_DB_HOST}/${TOMEE_DEMO_DATABASE}
         UserName            ${TOMEE_DEMO_DB_USER}
         Password            ${TOMEE_DEMO_DB_PASSWORD}
         JtaManaged          true
         DefaultAutoCommit   true
-    </Resource>
+    </Resource>-->
     
     <!-- DataSource para desenvolvimento -->
-<!--    <Resource id="applicationDS" type="DataSource">
+    <Resource id="applicationDS" type="DataSource">
         JdbcDriver          org.hsqldb.jdbcDriver
         JdbcUrl             jdbc:hsqldb:mem:tomee-demo-db
         UserName            sa
         Password            
         JtaManaged          true
         DefaultAutoCommit   true
-    </Resource>-->
+    </Resource>
     
     <!--
         Abaixo um template de javax.mail.Session preconfigurado.
