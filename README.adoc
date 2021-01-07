@@ -11,4 +11,7 @@ Como o heroku cria uma porta http aleatória em cada startup é preciso [era pre
 As customizações dos arquivos (e das pastas, e.g. 'bin', 'conf', etc...) de configuração do TomEE podem ser substituídos colocando-os em /src/main/tomee/.
 O server.xml customizado está em /src/main/tomee/conf/server.xml. A processo de build do tomee-maven-plugin substituirá os arquivos padrão do TomEE pelos que estiverem nessa pasta: /src/main/tomee/. Por exemplo, para substituir o arquivo /bin/catalina.sh basta colocar um novo em /src/main/tomee/bin/catalina.sh.
 
-Na tag <Connector> do server.xml pode-se ver que está <Connector port="${custom.http.port}" ...>. Essa variável 'custom.http.port' é passada para o TomEE no comando 'java -jar' com '-DadditionalSystemProperties=<javaarg[key-value]>, por exemplo -> `java -DadditionalSystemProperties=-Dcustom.http.port=8080 -jar /app/luisfga-tomee-demo-exec.jar run` em desenvolvimento ou -> `java -DadditionalSystemProperties=-Dcustom.http.port=$PORT -jar /app/luisfga-tomee-demo-exec.jar run`, como é usado no container Docker para fazer o bind com a porta aleatória criada pelo Heroku
+Na tag <Connector> do server.xml pode-se ver que está <Connector port="${custom.http.port}" ...>. Essa variável 'custom.http.port' é passada para o TomEE no comando 'java -jar' com '-DadditionalSystemProperties=<javaarg[key-value]>, por exemplo: 
+
+-> `java -DadditionalSystemProperties=-Dcustom.http.port=8080 -jar /app/luisfga-tomee-demo-exec.jar run` em desenvolvimento ou 
+-> `java -DadditionalSystemProperties=-Dcustom.http.port=$PORT -jar /app/luisfga-tomee-demo-exec.jar run`, como é usado no container Docker para fazer o bind com a porta aleatória criada pelo Heroku
