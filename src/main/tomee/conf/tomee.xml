@@ -1,16 +1,26 @@
-<!--
-    Resources para o TomEE. Podem ser colocados também em <tommee_dir>/conf/tomee.xml,
-    mas lá a raiz é <tomee> mesmo não precisa da raiz que aqui e <resources>. Só vai a
-    tag <Resource>
--->
-<resources>
-    
-    <!-- Datasource para o TomEE -->
-    <Resource id="applicationDS" type="DataSource">
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+  <!-- see http://tomee.apache.org/containers-and-resources.html -->
+
+  <!-- activate next line to be able to deploy applications in apps -->
+  <!-- <Deployments dir="apps" /> -->
+  
+    <!-- Datasource utilizando variáveis de ambiente. -->
+<!--    <Resource id="applicationDS" type="DataSource">
         JdbcDriver          org.postgresql.Driver
         JdbcUrl             jdbc:postgresql://${TOMEE_DEMO_DB_HOST}/${TOMEE_DEMO_DATABASE}
         UserName            ${TOMEE_DEMO_DB_USER}
         Password            ${TOMEE_DEMO_DB_PASSWORD}
+        JtaManaged          true
+        DefaultAutoCommit   true
+    </Resource>-->
+    
+    <!-- DataSource para desenvolvimento -->
+    <Resource id="applicationDS" type="DataSource">
+        JdbcDriver          org.hsqldb.jdbcDriver
+        JdbcUrl             jdbc:hsqldb:mem:tomee-demo-db
+        UserName            sa
+        Password            
         JtaManaged          true
         DefaultAutoCommit   true
     </Resource>
@@ -33,5 +43,5 @@
         mail.smtp.user = ${APP_MAIL_SESSION_USERNAME}
         password = ${APP_MAIL_SESSION_PASSWORD}
     </Resource>
-    
-</resources>
+  
+</tomee>

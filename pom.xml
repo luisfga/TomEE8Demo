@@ -12,6 +12,18 @@
   
     <name>TomEE8Demo</name>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <tomee.version>8.0.5</tomee.version>
+        <tomee.javaee-api.version>8.0-5</tomee.javaee-api.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <shiro.version>1.6.0</shiro.version>
+        <javamail.version>1.6.0</javamail.version>
+        <postgres.driver.version>42.2.14</postgres.driver.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.tomee</groupId>
@@ -104,27 +116,8 @@
                     <!-- args para limitar uso de memória e poder rodar no Heroku free tier -->
                     <args>-Xss512k -XX:MaxRAM=500m</args>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
 
-    <properties>
-        <tomee.version>8.0.5</tomee.version>
-        <tomee.javaee-api.version>8.0-5</tomee.javaee-api.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <shiro.version>1.6.0</shiro.version>
-        <javamail.version>1.6.0</javamail.version>
-        <postgres.driver.version>42.2.14</postgres.driver.version>
-    </properties>
 </project>
