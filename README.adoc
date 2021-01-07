@@ -15,7 +15,7 @@ java -jar target/luisfga-tomee-demo-exec.jar
 
 #### Docker ready
 
-Há um arquivo Dockerfile na raiz do projeto para criação de container Docker
+Há um arquivo Dockerfile na raiz do projeto para criação do container
 
 ### JPA
 
