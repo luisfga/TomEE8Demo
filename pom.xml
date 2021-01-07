@@ -68,11 +68,11 @@
         </dependency>
         
         <!-- Driver PostgreSQL -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgres.driver.version}</version>
-        </dependency>
+        </dependency>-->
     
         <!-- Java Mail que funciona! -->
         <dependency>

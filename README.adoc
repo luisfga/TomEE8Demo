@@ -1,6 +1,7 @@
 ## Apache TomEE 8 Standalone
 
 Everything ready-to-run with a simple `mvn clean install tomee:run`
+*Apenas a parte do sistema que precisa de envio de email precisará de configurações. Mais informações em 'src/main/webapp/WEB-INF/resources.xml'
 
 ### Uber Jar
 
@@ -10,6 +11,10 @@ If you'd like to build an uber-jar from the project, simply do:
 mvn clean install tomee:exec
 java -jar target/luisfga-tomee-demo-exec.jar
 ----
+
+#### Docker ready
+
+Há um arquivo Dockerfile na raiz do projeto para criação de container Docker
 
 ### JPA
 

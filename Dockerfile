@@ -1,10 +1,7 @@
-# Resumo comandos pra produção
+# Resumo comandos pra desenvolvimento
 # 1. mvn clean install tomee:exec
-# 2. docker build -t luisfga-tomee-demo:prd . --build-arg APP_MAIL_SESSION_HOST --build-arg APP_MAIL_SESSION_PORT --build-arg APP_MAIL_SESSION_USERNAME --build-arg APP_MAIL_SESSION_PASSWORD
-# 3. docker tag luisfga-tomee-demo:prd registry.heroku.com/luisfga-tomee-demo/web
-# 4. docker push registry.heroku.com/luisfga-tomee-demo/web
-# 5. heroku container:release web -a luisfga-tomee-demo
-
+# 2. docker build -t luisfga-tomee-demo:dev . --build-arg APP_MAIL_SESSION_HOST --build-arg APP_MAIL_SESSION_PORT --build-arg APP_MAIL_SESSION_USERNAME --build-arg APP_MAIL_SESSION_PASSWORD
+# 3. docker run -p 8080:8080 luisfga-tomee-demo:dev
 FROM openjdk:11
 
 MAINTAINER luisfga@gmail.com
@@ -22,8 +19,8 @@ COPY target/luisfga-tomee-demo-exec.jar /app/luisfga-tomee-demo-exec.jar
 # Elas devem estar no sistema que buildar o container e devem ser passadas ao container adicionando flags '--build-arg' ao comando 'build':
 # --build-arg APP_MAIL_SESSION_HOST --build-arg APP_MAIL_SESSION_PORT --build-arg APP_MAIL_SESSION_USERNAME --build-arg APP_MAIL_SESSION_PASSWORD
 
-# Exemplo de como poderá ser o comando 'build' pra produção:
-# -> docker build -t luisfga-tomee-demo:prd . --build-arg APP_MAIL_SESSION_HOST --build-arg APP_MAIL_SESSION_PORT --build-arg APP_MAIL_SESSION_USERNAME --build-arg APP_MAIL_SESSION_PASSWORD
+# Exemplo de como poderá ser o comando 'build':
+# -> docker build -f Dockerfile.dev -t luisfga-tomee-demo:dev . --build-arg APP_MAIL_SESSION_HOST --build-arg APP_MAIL_SESSION_PORT --build-arg APP_MAIL_SESSION_USERNAME --build-arg APP_MAIL_SESSION_PASSWORD
 
 
 # OBS: essas variáveis podem ficar vazias e não serem informadas apenas se o sistema onde for feito o deploy ou release já tiver essas variáveis, por exemplo no Heroku, se elas estiverem configuradas como configVars
@@ -41,18 +38,19 @@ ENV APP_MAIL_SESSION_USERNAME=$APP_MAIL_SESSION_USERNAME
 ENV APP_MAIL_SESSION_PASSWORD=$APP_MAIL_SESSION_PASSWORD
 
 #Heroku usa uma porta aleatória e a 'exporta' como PORT.
-EXPOSE $PORT
+EXPOSE 8080
 
-ENTRYPOINT [ "java", "-DadditionalSystemProperties=-Dcustom.http.port=$PORT", "-jar", "/app/luisfga-tomee-demo-exec.jar", "run"]
+ENTRYPOINT [ "java", "-jar", "/app/luisfga-tomee-demo-exec.jar", "run"]
 
 #TIPS
-# não esquecer de -> mvn clean install tomee:exec, para gerar o jar executável
+# não esquecer de -> mvn clean package
 
 #DOCKER TIPS
 # Excluir 'dangling' containers -> docker rmi $(docker images --filter "dangling=true" -q)
 
-# Build command DEV  -> docker build -t luisfga-tomee-demo:dev .
-# Build command PROD -> docker build -t luisfga-tomee-demo:prd .
+# Build command DEV  -> docker build -f Dockerfile.dev -t luisfga-tomee-demo:dev . --build-arg APP_MAIL_SESSION_HOST --build-arg APP_MAIL_SESSION_PORT --build-arg APP_MAIL_SESSION_USERNAME --build-arg APP_MAIL_SESSION_PASSWORD
+
+# Run command (DEV) -> docker run -p 8080:8080 luisfga-tomee-demo:dev
 
 # Listar containeres em execução -> docker ps
 
