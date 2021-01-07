@@ -3,7 +3,6 @@
 *configurado para deploy no https://www.heroku.com/[Heroku] com Docker.
 
 Mais informações em /Dockerfile, /Dockerfile.dev e /src/main/webapp/WEB-INF/resources.xml
-mvn clean install tomee:exec
 
 Como o heroku cria uma porta http aleatória em cada startup é preciso [era preciso, já está feito] configurar o server.xml, na tag <Connector> para pegar variável informada no comando 'java -jar'.
 
