@@ -1,3 +1,10 @@
+# Resumo comandos pra produção
+# 1. mvn clean install tomee:exec
+# 2. docker build -t luisfga-tomee-demo:prd . --build-arg APP_MAIL_SESSION_HOST --build-arg APP_MAIL_SESSION_PORT --build-arg APP_MAIL_SESSION_USERNAME --build-arg APP_MAIL_SESSION_PASSWORD
+# 3. docker tag luisfga-tomee-demo:prd registry.heroku.com/luisfga-tomee-demo/web
+# 4. docker push registry.heroku.com/luisfga-tomee-demo/web
+# 5. heroku container:release web -a luisfga-tomee-demo
+
 FROM openjdk:11
 
 MAINTAINER luisfga@gmail.com
