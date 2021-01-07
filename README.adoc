@@ -1,11 +1,12 @@
-## Apache TomEE 8 Standalone
+## TomEE 8 Demo App
 
-Everything ready-to-run with a simple `mvn clean install tomee:run`
-*Apenas a parte do sistema que precisa de envio de email precisará de configurações. Mais informações em 'src/main/webapp/WEB-INF/resources.xml'
+Pronta pra 'rodar'. Basta fazer o checkout e executar -> `mvn clean install tomee:run`
+
+*Apenas a parte do sistema que precisa de envio de email necessitará de configurações. Mais informações em 'src/main/webapp/WEB-INF/resources.xml'
 
 ### Uber Jar
 
-If you'd like to build an uber-jar from the project, simply do:
+Se quiser 'buildar' um uber-jar, apenas execute:
 
 ----
 mvn clean install tomee:exec
@@ -18,17 +19,17 @@ Há um arquivo Dockerfile na raiz do projeto para criação de container Docker
 
 ### JPA
 
-* https://github.com/luisfga/TomEE8Demo/blob/master/src/main/resources/META-INF/persistence.xml[persistence.xml] using tomee's default OpenJPA;
-* some https://github.com/luisfga/TomEE8Demo/tree/master/src/main/java/br/com/luisfga/domain/entities[entities] + bean validation annotations;
-* database https://github.com/luisfga/TomEE8Demo/blob/master/src/main/webapp/WEB-INF/resources.xml[<Resource>] for tomee (hsqldb pointing to /appdata/tomee-demo-db file);
-* a https://github.com/luisfga/TomEE8Demo/blob/master/src/main/java/br/com/luisfga/config/DatabaseSetup.java[DatabaseSetup] to load some required data (e.g. roles).
+* https://github.com/luisfga/TomEE8Demo/blob/master/src/main/resources/META-INF/persistence.xml[persistence.xml] usando o OpenJPA, padrão no TomEE;
+* Algumas https://github.com/luisfga/TomEE8Demo/tree/master/src/main/java/br/com/luisfga/domain/entities[entities] + anotações para bean validation;
+* https://github.com/luisfga/TomEE8Demo/blob/master/src/main/webapp/WEB-INF/resources.xml[<Resource>] de banco de dados (hsqldb modo 'memory');
+* Um https://github.com/luisfga/TomEE8Demo/blob/master/src/main/java/br/com/luisfga/config/DatabaseSetup.java[DatabaseSetup] para carregar alguns dados necessários (e.g. Roles).
 
 ### JSF
 
-* MyFaces and Primefaces dependency on https://github.com/luisfga/TomEE8Demo/blob/master/pom.xml[pom.xml];
-* JSF Servlet configuration on https://github.com/luisfga/TomEE8Demo/blob/master/src/main/webapp/WEB-INF/web.xml[web.xml];
+* Dependências do MyFaces e Primefaces no https://github.com/luisfga/TomEE8Demo/blob/master/pom.xml[pom.xml];
+* Configuração do JSF no https://github.com/luisfga/TomEE8Demo/blob/master/src/main/webapp/WEB-INF/web.xml[web.xml];
 * https://github.com/luisfga/TomEE8Demo/blob/master/src/main/java/br/com/luisfga/controller/jsf[backing beans] package.
 
-#### More...
+#### Mais...
 
-(https://github.com/luisfga/TomEE8Demo/blob/master/src/main/java/br/com/luisfga/service/StatusService.java[StatusService]) loading some server info for StatusBean and status.xhtml.
+(https://github.com/luisfga/TomEE8Demo/blob/master/src/main/java/br/com/luisfga/service/StatusService.java[StatusService]) carga de algumas informações do servidor para StatusBean e status.xhtml.
