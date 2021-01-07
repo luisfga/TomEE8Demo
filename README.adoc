@@ -12,6 +12,6 @@ O server.xml está em /src/main/tomee/conf/server.xml. A build substituirá os a
 
 Na tag <Connector> do server.xml pode-se ver que está <Connector port="${custom.http.port}" ...>. Essa variável é passada para o TomEE no comando 'java -jar', por exemplo: 
 
--> ´java -DadditionalSystemProperties=-Dcustom.http.port=8080 -jar /app/luisfga-tomee-demo-exec.jar run´ em desenvolvimento
+-> `java -DadditionalSystemProperties=-Dcustom.http.port=8080 -jar /app/luisfga-tomee-demo-exec.jar run` em desenvolvimento
 ou
--> ´java -DadditionalSystemProperties=-Dcustom.http.port=$PORT -jar /app/luisfga-tomee-demo-exec.jar run´, como é usado no container Docker para fazer o bind com a porta aleatória criada pelo Heroku
+-> `java -DadditionalSystemProperties=-Dcustom.http.port=$PORT -jar /app/luisfga-tomee-demo-exec.jar run`, como é usado no container Docker para fazer o bind com a porta aleatória criada pelo Heroku
