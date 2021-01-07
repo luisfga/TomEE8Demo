@@ -4,6 +4,8 @@
 
 Mais informações em /Dockerfile, /Dockerfile.dev e /src/main/webapp/WEB-INF/resources.xml
 
+### Notas
+
 Como o heroku cria uma porta http aleatória em cada startup é preciso [era preciso, já está feito] configurar o server.xml, na tag <Connector> para pegar variável informada no comando 'java -jar'.
 
 As customizações dos arquivos (e das pastas, e.g. 'bin', 'conf', etc...) de configuração do TomEE podem ser substituídos colocando-os em /src/main/tomee/.
