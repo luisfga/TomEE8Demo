@@ -14,7 +14,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <compiler.plugin.version>3.8.1</compiler.plugin.version>
+        <war.plugin.version>3.3.1</war.plugin.version>
         <java.version>11</java.version>
         <tomee.version>8.0.5</tomee.version>
         <tomee.javaee-api.version>8.0-5</tomee.javaee-api.version>
@@ -108,13 +109,18 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.version}</version>
+                <version>${compiler.plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <release>${java.version}</release>
                     <compilerArgument>-Xlint:unchecked</compilerArgument>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${war.plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.tomee.maven</groupId>
