@@ -46,7 +46,7 @@ public class DatabaseSetup implements ServletContextListener {
             EntityManager em = emf.createEntityManager();
 
             Query findBasicRole = em.createNamedQuery("AppRole.findStandardRoles");
-            List<AppRole> roles = findBasicRole.getResultList();
+            List roles = findBasicRole.getResultList();
 
             if(!roles.isEmpty()){
                 logger.info("Required data is OK!");

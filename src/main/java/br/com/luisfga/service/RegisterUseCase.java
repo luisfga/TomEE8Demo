@@ -5,6 +5,7 @@ import br.com.luisfga.domain.entities.AppUser;
 import br.com.luisfga.service.exceptions.EmailAlreadyTakenException;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -70,7 +71,11 @@ public class RegisterUseCase {
         try {
             Query findRolesForNewUser = em.createNamedQuery("AppRole.findRolesForNewUser");
             //Assumimos que um novo usuário não tem nada e sua lista de Roles está vazia.
-            List<AppRole> roles = findRolesForNewUser.getResultList();
+            List objectsReturned = findRolesForNewUser.getResultList();
+            List<AppRole> roles = new ArrayList<>();
+            for (Object object : objectsReturned) {
+                roles.add((AppRole)object);
+            }
             return roles;
             
         } catch (NoResultException nrException) {
