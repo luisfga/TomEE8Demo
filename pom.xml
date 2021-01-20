@@ -19,6 +19,7 @@
         <java.version>11</java.version>
         <tomee.version>8.0.5</tomee.version>
         <tomee.javaee-api.version>8.0-5</tomee.javaee-api.version>
+        <tomee.classifier>webprofile</tomee.classifier>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <shiro.version>1.6.0</shiro.version>
         <javamail.version>1.6.0</javamail.version>
@@ -128,7 +129,7 @@
                 <version>${tomee.version}</version>
                 <configuration>
                     <tomeeVersion>${tomee.version}</tomeeVersion>
-                    <tomeeClassifier>webprofile</tomeeClassifier>
+                    <tomeeClassifier>${tomee.classifier}</tomeeClassifier>
                     <context>ROOT</context>
                     <!-- args para limitar uso de memória e poder rodar no Heroku free tier -->
                     <args>-Xss512k -XX:MaxRAM=500m</args>
