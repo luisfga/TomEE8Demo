@@ -22,7 +22,7 @@ import org.apache.shiro.subject.Subject;
 public class LoginUseCase {
     
     @PersistenceContext(unitName = "applicationJpaUnit")
-    public EntityManager em;
+    private EntityManager em;
     
     @EJB private MailHelper mailHelper;
     

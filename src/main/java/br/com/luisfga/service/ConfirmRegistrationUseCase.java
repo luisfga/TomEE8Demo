@@ -10,10 +10,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 @Stateless
-public class ConfirmRegistrationUseCase extends UseCase{
+public class ConfirmRegistrationUseCase {
 
     @PersistenceContext(unitName = "applicationJpaUnit")
-    public EntityManager em;
+    private EntityManager em;
     
     public void confirmRegistration(String encodedEmail) throws CorruptedLinkageException {
         

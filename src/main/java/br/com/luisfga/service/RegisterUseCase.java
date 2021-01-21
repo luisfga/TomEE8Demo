@@ -21,7 +21,7 @@ import org.apache.shiro.authc.credential.DefaultPasswordService;
 public class RegisterUseCase {
     
     @PersistenceContext(unitName = "applicationJpaUnit")
-    public EntityManager em;
+    private EntityManager em;
     
     @EJB private MailHelper mailHelper;
     

@@ -16,10 +16,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 @Stateless
-public class PasswordRecoverUseCase extends UseCase{
+public class PasswordRecoverUseCase {
     
     @PersistenceContext(unitName = "applicationJpaUnit")
-    public EntityManager em;
+    private EntityManager em;
     
     @EJB 
     private MailHelper mailHelper;

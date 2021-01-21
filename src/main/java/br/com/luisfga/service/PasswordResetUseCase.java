@@ -18,7 +18,7 @@ import org.apache.shiro.authc.credential.DefaultPasswordService;
 public class PasswordResetUseCase {
 
     @PersistenceContext(unitName = "applicationJpaUnit")
-    public EntityManager em;
+    private EntityManager em;
     
     /**
      * Valida se o usuário tem uma janela de operação "aberta".Essa janela serve para estabelecer um tempo limite 

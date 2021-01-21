@@ -10,7 +10,7 @@ import javax.persistence.metamodel.EntityType;
 public class StatusService {
     
     @PersistenceContext(unitName = "applicationJpaUnit")
-    public EntityManager em;
+    private EntityManager em;
     
     public Set<EntityType<?>> getEntities(){
         
